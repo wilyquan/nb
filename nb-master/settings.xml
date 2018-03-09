@@ -104,14 +104,14 @@
 					<name>snapshots</name>
 					<releases><enabled>false</enabled></releases>
 					<snapshots><enabled>true</enabled></snapshots>
-					<url>http://bluesdev.yoohouse.com/nexus/content/repositories/snapshots</url>
+					<url>http://${nexus.addr}/nexus/content/repositories/snapshots</url>
 				</repository>
 				<repository>
 					<id>releases</id>
 					<name>releases</name>
 					<releases><enabled>true</enabled></releases>
 					<snapshots><enabled>false</enabled></snapshots>
-					<url>http://bluesdev.yoohouse.com/nexus/content/groups/public</url>
+					<url>http://${nexus.addr}/nexus/content/groups/public</url>
 				</repository>
 			</repositories>
 		</profile>
@@ -130,14 +130,14 @@
 					<name>snapshots</name>
 					<releases><enabled>false</enabled></releases>
 					<snapshots><enabled>true</enabled></snapshots>
-					<url>http://bluesdev.yoohouse.com/nexus/content/repositories/snapshots</url>
+					<url>http://${nexus.addr}/nexus/content/repositories/snapshots</url>
 				</repository>
 				<repository>
 					<id>releases</id>
 					<name>releases</name>
 					<releases><enabled>true</enabled></releases>
 					<snapshots><enabled>false</enabled></snapshots>
-					<url>http://bluesdev.yoohouse.com/nexus/content/groups/public</url>
+					<url>http://${nexus.addr}/nexus/content/groups/public</url>
 				</repository>
 			</repositories>
 		</profile>

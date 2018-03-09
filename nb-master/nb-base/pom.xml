@@ -43,4 +43,17 @@
 			<version>1.2.24</version>
 		</dependency>
 	</dependencies>
+	
+	 <distributionManagement>
+	  <repository>
+	    <id>releases</id>
+	      <name>Nexus Release Repository</name>
+	      <url>http://${nexus.addr}/nexus/content/repositories/releases/</url>
+	  </repository>
+	  <snapshotRepository>
+	    <id>snapshots</id>
+	    <name>Nexus Snapshot Repository</name>
+	    <url>http://${nexus.addr}/nexus/content/repositories/snapshots/</url>
+	  </snapshotRepository>
+  </distributionManagement>
 </project>
