@@ -7,5 +7,6 @@
   <packaging>pom</packaging>
   <modules>
     <module>nb-api</module>
+    <module>nb-base</module>
   </modules>
 </project>
