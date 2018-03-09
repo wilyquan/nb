@@ -5,20 +5,29 @@ package com.nb.entity;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Id;
+
 /**
  * db对象基类
  * @author willie
  *
  */
-public class DbEntity extends Entity {
+public class DbEntity<T> extends Entity {
 
+	@Id
 	protected String id;
 
 	protected String remarks; // 备注
 	// protected User createBy; // 创建者
+	@Column(nullable = false)
 	protected Date createDate; // 创建日期
 	// protected User updateBy; // 更新者
+	
+	@Column(nullable = false)
 	protected Date updateDate; // 更新日期
+	
+	@Column(nullable = false)
 	protected String delFlag; // 删除标记（0：正常；1：删除；2：审核）
 
 	/**
