@@ -10,13 +10,15 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
+import com.nb.utils.StringUtils;
+
 /**
  * db对象基类
  * @author willie
  *
  */
 @MappedSuperclass  
-public class DbEntity<T> extends com.nb.entity.Entity {
+public class DbEntity extends com.nb.entity.Entity {
 
 	@Id
 	protected String id;
@@ -32,6 +34,12 @@ public class DbEntity<T> extends com.nb.entity.Entity {
 	
 	@Column(nullable = false)
 	protected String delFlag; // 删除标记（0：正常；1：删除；2：审核）
+	
+	/**
+	 * 是否是新记录（默认：false），调用setIsNewRecord()设置新记录，使用自定义ID。
+	 * 设置为true后强制执行插入语句，ID不会自动生成，需从手动传入。
+	 */
+	protected boolean isNewRecord = false;
 
 	/**
 	 * 
@@ -78,5 +86,15 @@ public class DbEntity<T> extends com.nb.entity.Entity {
 	public void setDelFlag(String delFlag) {
 		this.delFlag = delFlag;
 	}
+
+	public boolean isNewRecord() {
+		return isNewRecord || StringUtils.isBlank(getId());
+	}
+
+	public void setNewRecord(boolean isNewRecord) {
+		this.isNewRecord = isNewRecord;
+	}
+	
+	
 
 }

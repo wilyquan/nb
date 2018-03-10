@@ -4,7 +4,7 @@
 package com.nb.sys.dao;
 
 
-import com.nb.entity.CrudDao;
+import com.nb.entity.BaseDao;
 import com.nb.sys.entity.User;
 
 /**
@@ -12,9 +12,6 @@ import com.nb.sys.entity.User;
  *
  */
 //public interface UserRepository extends Repository<User, String>  {
-public interface UserRepository extends CrudDao<User, String>  {
-
-	User findByName(String name);
+public interface UserDao extends BaseDao<User, String>  {
 	
-	User findById(String id);
 }

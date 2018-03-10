@@ -10,8 +10,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.nb.entity.service.CrudService;
-import com.nb.sys.dao.UserDAO;
-import com.nb.sys.dao.UserRepository;
+import com.nb.sys.dao.UserDao;
 import com.nb.sys.entity.User;
 
 /**
@@ -21,11 +20,11 @@ import com.nb.sys.entity.User;
 //@Component("userService")
 @Service(value = "userService")
 @Transactional
-public class UserService  {
-	@Autowired
-	private  UserRepository dao;
+public class UserService extends CrudService<UserDao, User, String>{
+//	@Autowired
+//	private  UserRepository dao;
 	
 	public User getUser(String name) {
-		return dao.findById(name);
+		return this.findById(name);
 	}
 }
