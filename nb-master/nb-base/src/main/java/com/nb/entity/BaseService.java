@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.nb.entity.service;
+package com.nb.entity;
 
 
 import org.slf4j.Logger;

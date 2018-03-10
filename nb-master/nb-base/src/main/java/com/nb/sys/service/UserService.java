@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-import com.nb.entity.service.CrudService;
+import com.nb.entity.CrudService;
 import com.nb.sys.dao.UserDao;
 import com.nb.sys.entity.User;
 
