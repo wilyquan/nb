@@ -21,10 +21,5 @@ import com.nb.sys.entity.User;
 @Service(value = "userService")
 @Transactional
 public class UserService extends CrudService<UserDao, User, String>{
-//	@Autowired
-//	private  UserRepository dao;
-	
-	public User getUser(String name) {
-		return this.findById(name);
-	}
+
 }

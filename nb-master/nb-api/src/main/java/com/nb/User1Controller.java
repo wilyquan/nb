@@ -23,7 +23,7 @@ public class User1Controller {
 	@ResponseBody
 	@Transactional(readOnly = true)
 	public String helloWorld(String name) {
-		com.nb.sys.entity.User user = this.userService.getUser(name);
+		com.nb.sys.entity.User user = this.userService.get(name);
 		if (user == null) {
 			return "user is null";
 		}

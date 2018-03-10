@@ -23,7 +23,7 @@ public class UserController {
 	@Transactional(readOnly = true)
 	public String helloWorld(String name) {
 		System.out.println("/ hellow wor");
-		com.nb.sys.entity.User user = this.userService.getUser(name);
+		com.nb.sys.entity.User user = this.userService.findById(name);
 		if (user == null) {
 			return "user is null";
 		}
