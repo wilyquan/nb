@@ -14,7 +14,5 @@ import org.springframework.data.repository.PagingAndSortingRepository;
  */
 @NoRepositoryBean
 public interface BaseDao<T extends DbEntity, ID extends Serializable> extends PagingAndSortingRepository<T, ID>{
-
-	
 	
 }

@@ -19,8 +19,6 @@ import com.nb.entity.DbEntity;
 public class User extends DbEntity{
 //public class User{
 
-//	@Id
-//	protected String id;
 	@Column(nullable = false)
 	String name;
 	String email;
