@@ -16,11 +16,11 @@ import com.nb.entity.DbEntity;
  */
 @Entity
 @Table(name="sys_user")
-//public class User extends DbEntity<User>{
-public class User{
+public class User extends DbEntity<User>{
+//public class User{
 
-	@Id
-	protected String id;
+//	@Id
+//	protected String id;
 	@Column(nullable = false)
 	String name;
 	String email;
@@ -37,12 +37,12 @@ public class User{
 		this.name = name;
 	}
 	
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
+//	public String getId() {
+//		return id;
+//	}
+//	public void setId(String id) {
+//		this.id = id;
+//	}
 	public String getEmail() {
 		return email;
 	}

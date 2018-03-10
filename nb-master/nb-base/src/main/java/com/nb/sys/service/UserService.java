@@ -26,6 +26,6 @@ public class UserService  {
 	private  UserRepository dao;
 	
 	public User getUser(String name) {
-		return dao.findByName(name);
+		return dao.findById(name);
 	}
 }

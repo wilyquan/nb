@@ -6,14 +6,17 @@ package com.nb.entity;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 
 /**
  * db对象基类
  * @author willie
  *
  */
-public class DbEntity<T> extends Entity {
+@MappedSuperclass  
+public class DbEntity<T> extends com.nb.entity.Entity {
 
 	@Id
 	protected String id;
