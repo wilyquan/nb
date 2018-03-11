@@ -6,6 +6,7 @@ package com.nb.sys.service;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +21,7 @@ import com.nb.sys.entity.User;
 //@Component("userService")
 @Service(value = "userService")
 @Transactional
+@CacheConfig(cacheNames = "user-cache")
 public class UserService extends CrudService<UserDao, User, String>{
 
 }
