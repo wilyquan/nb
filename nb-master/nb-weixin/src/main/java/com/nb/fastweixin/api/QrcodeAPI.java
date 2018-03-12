@@ -1,12 +1,12 @@
 package com.nb.fastweixin.api;
 
-import com.jv.fastweixin.api.enums.QrcodeType;
-import com.jv.fastweixin.api.response.BaseResponse;
-import com.jv.fastweixin.api.response.QrcodeResponse;
-import com.jv.fastweixin.util.BeanUtil;
-import com.jv.fastweixin.util.JSONUtil;
-import com.jv.fastweixin.util.StrUtil;
 import com.nb.fastweixin.api.config.ApiConfig;
+import com.nb.fastweixin.api.enums.QrcodeType;
+import com.nb.fastweixin.api.response.BaseResponse;
+import com.nb.fastweixin.api.response.QrcodeResponse;
+import com.nb.fastweixin.util.BeanUtil;
+import com.nb.fastweixin.util.JSONUtil;
+import com.nb.fastweixin.util.StrUtil;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

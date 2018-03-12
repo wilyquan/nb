@@ -1,8 +1,8 @@
 package com.nb.fastweixin.api.entity;
 
 import com.alibaba.fastjson.annotation.JSONField;
-import com.jv.fastweixin.api.enums.MenuType;
-import com.jv.fastweixin.exception.WeixinException;
+import com.nb.fastweixin.api.enums.MenuType;
+import com.nb.fastweixin.exception.WeixinException;
 
 import java.util.List;
 

@@ -1,13 +1,13 @@
 package com.nb.fastweixin.api;
 
-import com.jv.fastweixin.api.enums.MaterialType;
-import com.jv.fastweixin.api.enums.ResultType;
-import com.jv.fastweixin.api.response.*;
-import com.jv.fastweixin.util.JSONUtil;
-import com.jv.fastweixin.util.NetWorkCenter;
-import com.jv.fastweixin.util.StrUtil;
 import com.nb.fastweixin.api.config.ApiConfig;
 import com.nb.fastweixin.api.entity.Article;
+import com.nb.fastweixin.api.enums.MaterialType;
+import com.nb.fastweixin.api.enums.ResultType;
+import com.nb.fastweixin.api.response.*;
+import com.nb.fastweixin.util.JSONUtil;
+import com.nb.fastweixin.util.NetWorkCenter;
+import com.nb.fastweixin.util.StrUtil;
 
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;

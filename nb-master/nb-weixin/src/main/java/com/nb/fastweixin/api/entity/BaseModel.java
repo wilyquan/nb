@@ -1,6 +1,6 @@
 package com.nb.fastweixin.api.entity;
 
-import com.jv.fastweixin.util.JSONUtil;
+import com.nb.fastweixin.util.JSONUtil;
 
 /**
  * 抽象实体类

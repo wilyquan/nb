@@ -1,10 +1,10 @@
 package com.nb.fastweixin.api;
 
-import com.jv.fastweixin.api.enums.ResultType;
-import com.jv.fastweixin.api.response.GetSignatureResponse;
-import com.jv.fastweixin.util.BeanUtil;
-import com.jv.fastweixin.util.JsApiUtil;
 import com.nb.fastweixin.api.config.ApiConfig;
+import com.nb.fastweixin.api.enums.ResultType;
+import com.nb.fastweixin.api.response.GetSignatureResponse;
+import com.nb.fastweixin.util.BeanUtil;
+import com.nb.fastweixin.util.JsApiUtil;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

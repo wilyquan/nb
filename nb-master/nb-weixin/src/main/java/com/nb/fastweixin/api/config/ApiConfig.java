@@ -1,12 +1,12 @@
 package com.nb.fastweixin.api.config;
 
-import com.jv.fastweixin.api.response.GetJsApiTicketResponse;
-import com.jv.fastweixin.api.response.GetTokenResponse;
-import com.jv.fastweixin.exception.WeixinException;
-import com.jv.fastweixin.handle.ApiConfigChangeHandle;
-import com.jv.fastweixin.util.JSONUtil;
-import com.jv.fastweixin.util.NetWorkCenter;
-import com.jv.fastweixin.util.StrUtil;
+import com.nb.fastweixin.api.response.GetJsApiTicketResponse;
+import com.nb.fastweixin.api.response.GetTokenResponse;
+import com.nb.fastweixin.exception.WeixinException;
+import com.nb.fastweixin.handle.ApiConfigChangeHandle;
+import com.nb.fastweixin.util.JSONUtil;
+import com.nb.fastweixin.util.NetWorkCenter;
+import com.nb.fastweixin.util.StrUtil;
 
 import org.apache.http.HttpStatus;
 import org.slf4j.Logger;

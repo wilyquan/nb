@@ -2,14 +2,14 @@ package com.nb.fastweixin.api;
 
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.JSONPath;
-import com.jv.fastweixin.api.enums.ResultType;
-import com.jv.fastweixin.api.response.BaseResponse;
-import com.jv.fastweixin.api.response.GetMenuResponse;
-import com.jv.fastweixin.util.BeanUtil;
-import com.jv.fastweixin.util.CollectionUtil;
-import com.jv.fastweixin.util.JSONUtil;
 import com.nb.fastweixin.api.config.ApiConfig;
 import com.nb.fastweixin.api.entity.Menu;
+import com.nb.fastweixin.api.enums.ResultType;
+import com.nb.fastweixin.api.response.BaseResponse;
+import com.nb.fastweixin.api.response.GetMenuResponse;
+import com.nb.fastweixin.util.BeanUtil;
+import com.nb.fastweixin.util.CollectionUtil;
+import com.nb.fastweixin.util.JSONUtil;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

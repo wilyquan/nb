@@ -7,16 +7,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.alibaba.fastjson.JSONArray;
-import com.jv.fastweixin.api.enums.ResultType;
-import com.jv.fastweixin.api.response.AddTemplateResponse;
-import com.jv.fastweixin.api.response.BaseResponse;
-import com.jv.fastweixin.api.response.PrivateTemplate;
-import com.jv.fastweixin.api.response.SendTemplateResponse;
-import com.jv.fastweixin.util.BeanUtil;
-import com.jv.fastweixin.util.JSONUtil;
 import com.nb.fastweixin.api.config.ApiConfig;
 import com.nb.fastweixin.api.entity.Industry;
 import com.nb.fastweixin.api.entity.TemplateMsg;
+import com.nb.fastweixin.api.enums.ResultType;
+import com.nb.fastweixin.api.response.AddTemplateResponse;
+import com.nb.fastweixin.api.response.BaseResponse;
+import com.nb.fastweixin.api.response.PrivateTemplate;
+import com.nb.fastweixin.api.response.SendTemplateResponse;
+import com.nb.fastweixin.util.BeanUtil;
+import com.nb.fastweixin.util.JSONUtil;
 
 /**
  * 模版消息 api

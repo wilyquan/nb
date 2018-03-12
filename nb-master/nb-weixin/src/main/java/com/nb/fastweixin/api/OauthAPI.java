@@ -1,13 +1,13 @@
 package com.nb.fastweixin.api;
 
-import com.jv.fastweixin.api.enums.OauthScope;
-import com.jv.fastweixin.api.response.BaseResponse;
-import com.jv.fastweixin.api.response.GetUserInfoResponse;
-import com.jv.fastweixin.api.response.OauthGetTokenResponse;
-import com.jv.fastweixin.util.BeanUtil;
-import com.jv.fastweixin.util.JSONUtil;
-import com.jv.fastweixin.util.StrUtil;
 import com.nb.fastweixin.api.config.ApiConfig;
+import com.nb.fastweixin.api.enums.OauthScope;
+import com.nb.fastweixin.api.response.BaseResponse;
+import com.nb.fastweixin.api.response.GetUserInfoResponse;
+import com.nb.fastweixin.api.response.OauthGetTokenResponse;
+import com.nb.fastweixin.util.BeanUtil;
+import com.nb.fastweixin.util.JSONUtil;
+import com.nb.fastweixin.util.StrUtil;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

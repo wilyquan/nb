@@ -1,9 +1,9 @@
 package com.nb.fastweixin.api;
 
-import com.jv.fastweixin.api.response.*;
-import com.jv.fastweixin.util.BeanUtil;
-import com.jv.fastweixin.util.JSONUtil;
 import com.nb.fastweixin.api.config.ApiConfig;
+import com.nb.fastweixin.api.response.*;
+import com.nb.fastweixin.util.BeanUtil;
+import com.nb.fastweixin.util.JSONUtil;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

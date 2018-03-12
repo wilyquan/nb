@@ -1,13 +1,13 @@
 package com.nb.fastweixin.api;
 
-import com.jv.fastweixin.api.enums.ResultType;
-import com.jv.fastweixin.api.response.BaseResponse;
-import com.jv.fastweixin.api.response.CreateTagResponse;
-import com.jv.fastweixin.api.response.GetAllTagsResponse;
-import com.jv.fastweixin.api.response.GetUsersResponse;
-import com.jv.fastweixin.util.BeanUtil;
-import com.jv.fastweixin.util.JSONUtil;
 import com.nb.fastweixin.api.config.ApiConfig;
+import com.nb.fastweixin.api.enums.ResultType;
+import com.nb.fastweixin.api.response.BaseResponse;
+import com.nb.fastweixin.api.response.CreateTagResponse;
+import com.nb.fastweixin.api.response.GetAllTagsResponse;
+import com.nb.fastweixin.api.response.GetUsersResponse;
+import com.nb.fastweixin.util.BeanUtil;
+import com.nb.fastweixin.util.JSONUtil;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
