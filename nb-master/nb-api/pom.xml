@@ -70,6 +70,11 @@
 			<artifactId>nb-base</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+		<dependency>
+			<groupId>com.nb</groupId>
+			<artifactId>nb-weixin</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 
 	<build>
