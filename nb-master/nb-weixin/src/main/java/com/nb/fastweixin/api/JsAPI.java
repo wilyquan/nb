@@ -23,6 +23,7 @@ public class JsAPI extends BaseAPI {
         super(config);
     }
 
+    
     /**
      * 获取js-sdk所需的签名，简化逻辑
      * 不太在意随机数和时间戳的场景，使用更加方便
