@@ -1,7 +1,7 @@
 package com.jv.fastweixin.api.response;
 
 import com.alibaba.fastjson.annotation.JSONField;
-import com.jv.fastweixin.api.entity.CustomAccount;
+import com.nb.fastweixin.api.entity.CustomAccount;
 
 import java.util.List;
 

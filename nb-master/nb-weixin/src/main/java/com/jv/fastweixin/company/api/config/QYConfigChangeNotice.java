@@ -1,7 +1,7 @@
 package com.jv.fastweixin.company.api.config;
 
-import com.jv.fastweixin.api.config.ChangeType;
-import com.jv.fastweixin.api.entity.BaseModel;
+import com.nb.fastweixin.api.config.ChangeType;
+import com.nb.fastweixin.api.entity.BaseModel;
 
 import java.util.Date;
 

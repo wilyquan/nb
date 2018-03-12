@@ -1,6 +1,6 @@
 package com.jv.fastweixin.api.response;
 
-import com.jv.fastweixin.api.entity.Menu;
+import com.nb.fastweixin.api.entity.Menu;
 
 /**
  * @author peiyu

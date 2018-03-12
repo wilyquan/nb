@@ -1,6 +1,6 @@
 package com.jv.fastweixin.api.request;
 
-import com.jv.fastweixin.api.entity.BaseModel;
+import com.nb.fastweixin.api.entity.BaseModel;
 
 /**
  * @author peiyu

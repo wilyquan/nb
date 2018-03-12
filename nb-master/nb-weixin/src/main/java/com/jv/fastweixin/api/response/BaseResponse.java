@@ -1,9 +1,9 @@
 package com.jv.fastweixin.api.response;
 
-import com.jv.fastweixin.api.entity.BaseModel;
 import com.jv.fastweixin.api.enums.ResultType;
 import com.jv.fastweixin.util.BeanUtil;
 import com.jv.fastweixin.util.StrUtil;
+import com.nb.fastweixin.api.entity.BaseModel;
 
 /**
  * 微信API响应报文对象基类

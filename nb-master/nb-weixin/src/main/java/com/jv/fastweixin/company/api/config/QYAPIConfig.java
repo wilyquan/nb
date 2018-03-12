@@ -1,7 +1,5 @@
 package com.jv.fastweixin.company.api.config;
 
-import com.jv.fastweixin.api.config.ChangeType;
-import com.jv.fastweixin.api.config.ConfigChangeNotice;
 import com.jv.fastweixin.api.response.GetJsApiTicketResponse;
 import com.jv.fastweixin.api.response.GetTokenResponse;
 import com.jv.fastweixin.exception.WeixinException;
@@ -9,6 +7,8 @@ import com.jv.fastweixin.handle.ApiConfigChangeHandle;
 import com.jv.fastweixin.util.JSONUtil;
 import com.jv.fastweixin.util.NetWorkCenter;
 import com.jv.fastweixin.util.StrUtil;
+import com.nb.fastweixin.api.config.ChangeType;
+import com.nb.fastweixin.api.config.ConfigChangeNotice;
 
 import org.apache.http.HttpStatus;
 import org.slf4j.Logger;

@@ -1,7 +1,7 @@
 package com.jv.fastweixin.api.response;
 
 import com.alibaba.fastjson.annotation.JSONField;
-import com.jv.fastweixin.api.entity.BaseModel;
+import com.nb.fastweixin.api.entity.BaseModel;
 
 /**
  * 获取已添加至帐号下所有模板

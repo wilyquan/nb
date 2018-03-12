@@ -1,6 +1,6 @@
 package com.jv.fastweixin.company.api.entity;
 
-import com.jv.fastweixin.api.entity.BaseModel;
+import com.nb.fastweixin.api.entity.BaseModel;
 
 /**
  *  企业通讯录-标签

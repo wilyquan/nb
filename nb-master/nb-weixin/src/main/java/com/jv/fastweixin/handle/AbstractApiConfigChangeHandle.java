@@ -1,7 +1,7 @@
 package com.jv.fastweixin.handle;
 
-import com.jv.fastweixin.api.config.ConfigChangeNotice;
 import com.jv.fastweixin.util.BeanUtil;
+import com.nb.fastweixin.api.config.ConfigChangeNotice;
 
 import java.util.Observable;
 

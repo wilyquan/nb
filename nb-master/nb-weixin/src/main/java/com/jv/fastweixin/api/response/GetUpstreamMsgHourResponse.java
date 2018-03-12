@@ -2,7 +2,7 @@ package com.jv.fastweixin.api.response;
 
 import java.util.List;
 
-import com.jv.fastweixin.api.entity.UpstreamMsgHour;
+import com.nb.fastweixin.api.entity.UpstreamMsgHour;
 
 /**
  * @author peiyu

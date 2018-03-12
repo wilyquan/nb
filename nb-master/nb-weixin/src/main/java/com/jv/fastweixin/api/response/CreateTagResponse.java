@@ -1,6 +1,6 @@
 package com.jv.fastweixin.api.response;
 
-import com.jv.fastweixin.api.entity.Tag;
+import com.nb.fastweixin.api.entity.Tag;
 
 /**
  * @author peiyu

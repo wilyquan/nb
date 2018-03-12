@@ -1,12 +1,12 @@
 package com.jv.fastweixin.company.api;
 
-import com.jv.fastweixin.api.BaseAPI;
-import com.jv.fastweixin.api.config.ApiConfig;
 import com.jv.fastweixin.api.response.BaseResponse;
 import com.jv.fastweixin.company.api.config.QYAPIConfig;
 import com.jv.fastweixin.company.api.response.GetQYSendMessageResponse;
 import com.jv.fastweixin.company.message.*;
 import com.jv.fastweixin.util.JSONUtil;
+import com.nb.fastweixin.api.BaseAPI;
+import com.nb.fastweixin.api.config.ApiConfig;
 
 /**
  * ====================================================================

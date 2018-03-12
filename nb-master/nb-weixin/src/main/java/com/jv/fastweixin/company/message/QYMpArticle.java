@@ -1,6 +1,6 @@
 package com.jv.fastweixin.company.message;
 
-import com.jv.fastweixin.api.entity.Article;
+import com.nb.fastweixin.api.entity.Article;
 
 /**
  *  

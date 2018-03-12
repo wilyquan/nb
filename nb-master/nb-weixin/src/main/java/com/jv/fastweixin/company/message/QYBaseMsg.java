@@ -3,7 +3,7 @@ package com.jv.fastweixin.company.message;/**
  */
 
 import com.alibaba.fastjson.annotation.JSONField;
-import com.jv.fastweixin.api.entity.BaseModel;
+import com.nb.fastweixin.api.entity.BaseModel;
 
 import java.io.Serializable;
 
