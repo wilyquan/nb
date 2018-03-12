@@ -8,6 +8,7 @@
   <modules>
     <module>nb-api</module>
     <module>nb-base</module>
+    <module>nb-weixin</module>
   </modules>
   
    <distributionManagement>
