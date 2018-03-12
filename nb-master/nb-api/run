@@ -1,0 +1,9 @@
+#!/bin/sh
+
+git fetch --all
+git reset --hard origin/master
+
+mvn clean install -U -DRUNTIME_ENV=product -P product
+
+mvn spring-boot:run
+
