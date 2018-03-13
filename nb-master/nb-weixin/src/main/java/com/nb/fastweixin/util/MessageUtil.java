@@ -74,12 +74,16 @@ public final class MessageUtil {
                 String msgSignature = request.getParameter("msg_signature");
                 String timeStamp = request.getParameter("timestamp");
                 String nonce = request.getParameter("nonce");
-                LOG.debug("msgSignature:{}", msgSignature);
-                LOG.debug("timeStamp:{}", timeStamp);
-                LOG.debug("nonce:{}", nonce);
+                LOG.info("msgSignature:{}", msgSignature);
+                LOG.info("timeStamp:{}", timeStamp);
+                LOG.info("nonce:{}", nonce);
                 String encrypt = nodelist1.item(0).getTextContent();
                 String fromXML = String.format(FORMAT, encrypt);
                 String message = pc.decryptMsg(msgSignature, timeStamp, nonce, fromXML);
+               
+                LOG.info("fromXML:{ }", fromXML);
+                LOG.info("encrypt:{ }", encrypt);
+                LOG.info("message:{ }", message);
                 inputStream = new ByteArrayInputStream(message.getBytes());
             }
             XMLInputFactory factory = XMLInputFactory.newInstance();
