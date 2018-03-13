@@ -79,11 +79,11 @@ public final class MessageUtil {
                 LOG.info("nonce:{}", nonce);
                 String encrypt = nodelist1.item(0).getTextContent();
                 String fromXML = String.format(FORMAT, encrypt);
+                
+                LOG.info("fromXML:{}", fromXML);
+                LOG.info("encrypt:{}", encrypt);
                 String message = pc.decryptMsg(msgSignature, timeStamp, nonce, fromXML);
-               
-                LOG.info("fromXML:{ }", fromXML);
-                LOG.info("encrypt:{ }", encrypt);
-                LOG.info("message:{ }", message);
+                LOG.info("message:{}", message);
                 inputStream = new ByteArrayInputStream(message.getBytes());
             }
             XMLInputFactory factory = XMLInputFactory.newInstance();

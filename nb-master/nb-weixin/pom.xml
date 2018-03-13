@@ -33,6 +33,14 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+		
+		<dependency>
+			<groupId>xom</groupId>
+			<artifactId>xom</artifactId>
+			<version>1.2.5</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
 
 		<!-- LOGGING begin -->
 		<dependency>

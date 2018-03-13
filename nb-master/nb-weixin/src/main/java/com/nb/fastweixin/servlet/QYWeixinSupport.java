@@ -2,6 +2,7 @@ package com.nb.fastweixin.servlet;
 
 import com.nb.fastweixin.company.handle.QYEventHandle;
 import com.nb.fastweixin.company.handle.QYMessageHandle;
+import com.nb.fastweixin.company.handle.QYOrderHandle;
 import com.nb.fastweixin.company.message.req.*;
 import com.nb.fastweixin.company.message.resp.QYBaseRespMsg;
 import com.nb.fastweixin.company.message.resp.QYTextRespMsg;
@@ -70,6 +71,10 @@ public abstract class QYWeixinSupport{
     private static List<QYEventHandle> eventHandles;
 
     /**
+     * 微信指令处理器列表
+     */
+    private static QYOrderHandle orderHandle;
+    /**
      * 子类重写，加入自定义的微信消息处理器，细化消息的处理
      *
      * @return 微信消息处理器列表
@@ -84,6 +89,15 @@ public abstract class QYWeixinSupport{
      * @return 微信事件处理器列表
      */
     protected List<QYEventHandle> initEventHandles(){
+        return null;
+    }
+    
+    /**
+     * 子类重写，加入自定义的微信指令回调信息处理器，细化消息的处理
+     *
+     * @return 微信事件处理器列表
+     */
+    protected QYOrderHandle initOrderHandle(){
         return null;
     }
 
@@ -126,6 +140,12 @@ public abstract class QYWeixinSupport{
      */
     public String processRequest(HttpServletRequest request){
         Map<String, Object> reqMap = MessageUtil.parseXml(request, getToken(), getCropId(), getAESKey());
+        String infoType = (String)reqMap.get("InfoType");
+        
+        if (infoType != null) {
+        		return processOrderHandle(reqMap);
+        }
+        
         String fromUserName = (String)reqMap.get("FromUserName");
         String toUserName = (String)reqMap.get("ToUserName");
         String msgType = (String)reqMap.get("MsgType");
@@ -359,6 +379,18 @@ public abstract class QYWeixinSupport{
             }
         }
         return null;
+    }
+    
+    private String processOrderHandle(Map requestMap){
+    		if (orderHandle == null) {
+    			orderHandle = this.initOrderHandle();
+    		}
+    		
+    		if (orderHandle.handle(requestMap)) {
+    			return "success";
+    		}
+    		
+    		return "fail";
     }
 
     /**
