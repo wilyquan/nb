@@ -9,8 +9,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.Transient;
 
 import com.nb.sys.entity.User;
+import com.nb.utils.IdGen;
 import com.nb.utils.StringUtils;
 
 /**
@@ -20,7 +22,7 @@ import com.nb.utils.StringUtils;
  *
  */
 @MappedSuperclass
-public class DbEntity extends com.nb.entity.Entity {
+public class DbEntity<T> extends com.nb.entity.Entity{
 
 	@Id
 	protected String id;
@@ -34,8 +36,6 @@ public class DbEntity extends com.nb.entity.Entity {
 	@Column(nullable = false)
 	protected Date updateDate; // 更新日期
 
-	
-
 	@Column(nullable = false)
 	protected String delFlag; // 删除标记（0：正常；1：删除；2：审核）
 
@@ -43,6 +43,7 @@ public class DbEntity extends com.nb.entity.Entity {
 	 * 是否是新记录（默认：false），调用setIsNewRecord()设置新记录，使用自定义ID。
 	 * 设置为true后强制执行插入语句，ID不会自动生成，需从手动传入。
 	 */
+	@Transient
 	protected boolean isNewRecord = false;
 
 	/**
@@ -101,6 +102,33 @@ public class DbEntity extends com.nb.entity.Entity {
 		this.isNewRecord = isNewRecord;
 	}
 
+	/**
+	 * 插入之前执行方法，需要手动调用
+	 */
+	public void preInsert() {
+		// 不限制ID为UUID，调用setIsNewRecord()使用自定义ID
+		if (!this.isNewRecord) {
+			setId(IdGen.uuid());
+		}
+//		User user = UserUtils.getUser();
+//		if (StringUtils.isNotBlank(user.getId())) {
+//			this.updateBy = user;
+//			this.createBy = user;
+//		}
+		this.updateDate = new Date();
+		this.createDate = this.updateDate;
+	}
+	
+	/**
+	 * 更新之前执行方法，需要手动调用
+	 */
+	public void preUpdate() {
+//		User user = UserUtils.getUser();
+//		if (StringUtils.isNotBlank(user.getId())) {
+//			this.updateBy = user;
+//		}
+		this.updateDate = new Date();
+	}
 	
 	/**
 	 * 删除标记（0：正常；1：删除；2：审核；3：不完整）

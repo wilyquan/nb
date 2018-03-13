@@ -16,7 +16,7 @@ import com.nb.entity.DbEntity;
  */
 @Entity
 @Table(name="sys_user")
-public class User extends DbEntity{
+public class User extends DbEntity<User>{
 //public class User{
 
 	@Column(nullable = false)

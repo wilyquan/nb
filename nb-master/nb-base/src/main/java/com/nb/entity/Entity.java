@@ -6,6 +6,7 @@ package com.nb.entity;
 import java.io.Serializable;
 import java.util.Map;
 
+import com.nb.interfaces.Convertible;
 import com.nb.interfaces.Jsonable;
 import com.nb.interfaces.Mapable;
 import com.nb.utils.JSONUtil;
@@ -14,7 +15,7 @@ import com.nb.utils.JSONUtil;
  * @author willie
  *
  */
-public class Entity implements Jsonable, Mapable, Serializable {
+public class Entity<T, V> implements Jsonable, Mapable, Serializable {
 
 	/**
 	 * 将model转成json字符串
@@ -30,5 +31,10 @@ public class Entity implements Jsonable, Mapable, Serializable {
 	public Map toMap() {
 		return JSONUtil.toMap(this.toJsonString());
 	}
+
+//	@Override
+//	public Object convert(Object obj) {
+//		return this;
+//	}
 
 }

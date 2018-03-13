@@ -102,6 +102,11 @@ public abstract class CrudService<D extends BaseDao<T, ID>, T extends DbEntity, 
 	}
 
 	public T save(T entity) {
+		if (entity.isNewRecord()) {
+			entity.preInsert();
+		}else {
+			entity.preUpdate();
+		}
 		return dao.save(entity);
 	}
 
