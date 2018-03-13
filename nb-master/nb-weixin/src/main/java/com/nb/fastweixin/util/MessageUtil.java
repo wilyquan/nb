@@ -58,7 +58,7 @@ public final class MessageUtil {
                 ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
                 StreamUtil.copy(inputStream, outputStream);
                 String body = outputStream.toString();
-                LOG.debug("收到的消息密文:{}", body);
+                LOG.info("收到的消息密文:{}", body);
 
                 DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
                 DocumentBuilder db = dbf.newDocumentBuilder();
