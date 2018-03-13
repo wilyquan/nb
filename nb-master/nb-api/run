@@ -14,4 +14,4 @@ sleep ${WAITSEC}s
 mvn clean install -U -DRUNTIME_ENV=product -P product
 
 #mvn spring-boot:run -Drun.profiles=product &
-mvn spring-boot:run -Pproduct &
+mvn spring-boot:run -Dspring-boot.run.profiles=product &
