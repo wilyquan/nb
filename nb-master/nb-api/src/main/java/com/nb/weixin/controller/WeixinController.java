@@ -15,7 +15,7 @@ import com.nb.fastweixin.servlet.WeixinControllerSupport;
  */
 @Controller
 @RequestMapping(value = "weixin")
-public class WeixinController extends WeixinControllerSupport{
+public class WeixinController extends WeixinControllerSupport {
 
 	@Override
 	protected String getToken() {
@@ -23,7 +23,11 @@ public class WeixinController extends WeixinControllerSupport{
 		return "websiteweixin_token";
 	}
 
-	
-	
+	// 使用安全模式时设置：APPID
+	// 不再强制重写，有加密需要时自行重写该方法
+	@Override
+	protected String getAppId() {
+		return "wx812ada61d299ea13";
+	}
 
 }
