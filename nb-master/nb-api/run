@@ -4,12 +4,12 @@ git fetch --all
 git reset --hard origin/master
 
 WAITSEC=10
-curl -X POST http://127.0.0.1:8900/shutdown
+curl -X POST http://127.0.0.1:8900/actuator/shutdown
 
 #stop 15s
 sleep ${WAITSEC}s
 
 mvn clean install -U -DRUNTIME_ENV=product -P product
 
-mvn spring-boot:run &
+mvn spring-boot:run -Drun.profiles=product &
 
