@@ -93,6 +93,7 @@ public class QYSuiteAuthExecutor implements Runnable{
 			logger.error("errmsg = {}", errmsg);
 		}
 		
+		return suiteAccessToken;
 	}
 	
 	public void getPreAuthCode(String suiteAccessToken) {
