@@ -14,6 +14,10 @@
 package com.nb.fastweixin.message.aes;
 
 import org.apache.commons.codec.binary.Base64;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.nb.fastweixin.servlet.QYWeixinSupport;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
@@ -39,6 +43,8 @@ import java.util.Random;
  */
 public class WXBizMsgCrypt {
 
+	protected static final Logger LOG = LoggerFactory.getLogger(WXBizMsgCrypt.class);
+	
     static Charset CHARSET = Charset.forName("utf-8");
     Base64 base64 = new Base64();
     byte[] aesKey;
@@ -57,7 +63,10 @@ public class WXBizMsgCrypt {
         if (encodingAesKey.length() != 43) {
             throw new AesException(AesException.IllegalAesKey);
         }
-
+        
+        LOG.info("token = {}", token);
+        LOG.info("appId= {}", appId);
+        LOG.info("encodingAesKey = {}", encodingAesKey);
         this.token = token;
         this.appId = appId;
         aesKey = Base64.decodeBase64(encodingAesKey + "=");

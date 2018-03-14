@@ -31,7 +31,7 @@ import java.util.Map;
  */
 public abstract class QYWeixinSupport{
 
-    private static final Logger LOG = LoggerFactory.getLogger(QYWeixinSupport.class);
+    protected static final Logger LOG = LoggerFactory.getLogger(QYWeixinSupport.class);
 
     private static final Object LOCK = new Object();
 
