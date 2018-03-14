@@ -42,7 +42,7 @@ public class SuiteAuth extends DbEntity<SuiteAuth> {
 		this.authCode = authCode;
 		this.corpId = corpId;
 		
-		if (StringUtils.isNullOrEmpty(authCode)) {
+		if (!StringUtils.isNullOrEmpty(authCode)) {
 			this.status = STATUS_AUTH;
 		}else {
 			this.status = STATUS_AUTH_CANCEL;
