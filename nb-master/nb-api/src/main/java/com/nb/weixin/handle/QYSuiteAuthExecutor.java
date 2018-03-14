@@ -51,6 +51,16 @@ public class QYSuiteAuthExecutor implements Runnable{
 		}
 	}
 	
+	/**
+	 * 该API用于获取第三方应用凭证（suite_access_token）
+	 * 
+	 * 由于第三方服务商可能托管了大量的企业，其安全问题造成的影响会更加严重，故API中除了合法来源IP校验之外，还额外增加了suite_ticket作为安全凭证。
+	 * 获取suite_access_token时，需要suite_ticket参数。suite_ticket由企业微信后台定时推送给“指令回调URL”，每十分钟更新一次，见推送suite_ticket。
+	 * suite_ticket实际有效期为30分钟，可以容错连续两次获取suite_ticket失败的情况，但是请永远使用最新接收到的suite_ticket。
+     * 通过本接口获取的suite_access_token有效期为2小时，开发者需要进行缓存，不可频繁获取。
+	 * 
+	 * @return
+	 */
 	public String getSuiteToken() {
 		
 		String suiteAccessToken = null;
