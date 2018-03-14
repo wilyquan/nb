@@ -13,7 +13,9 @@ import com.nb.fastweixin.company.message.req.QYOrderType;
 import com.nb.fastweixin.util.JSONUtil;
 import com.nb.utils.SpringContextHolder;
 import com.nb.weixin.company.entity.Suite;
+import com.nb.weixin.company.entity.SuiteAuth;
 import com.nb.weixin.company.entity.SuiteOrder;
+import com.nb.weixin.company.service.SuiteAuthService;
 import com.nb.weixin.company.service.SuiteOrderService;
 import com.nb.weixin.company.service.SuiteService;
 
@@ -37,12 +39,46 @@ public class QYCrmOrderHandle implements QYOrderHandle {
 		String infoType = (String) reqMap.get("InfoType");
 		if (QYOrderType.SUITE_TICKET.equalsIgnoreCase(infoType)) {
 			updateSuiteTicket(reqMap);
-		}else if (QYOrderType.CREATE_AUTH.equalsIgnoreCase(infoType)) {
-			
+
+			return true;
+		} else if (QYOrderType.CREATE_AUTH.equalsIgnoreCase(infoType)) {
+			suiteAuth(reqMap);
+		} else if (QYOrderType.CANCEL_AUTH.equalsIgnoreCase(infoType)) {
+			suiteAuthCancel(reqMap);
 		}
-		
+
 		addSuiteOrder(reqMap);
+		
 		return true;
+	}
+
+	/**
+	 * 授权取消
+	 * @param reqMap
+	 */
+	public void suiteAuthCancel(Map reqMap) {
+		String suiteId = (String) reqMap.get("SuiteId");
+		String cropId = (String) reqMap.get("AuthCorpId");
+
+		SuiteAuth auth = new SuiteAuth(suiteId, null, cropId);
+
+		SuiteAuthService service = SpringContextHolder.getBean(SuiteAuthService.class);
+		
+		service.doSuiteAuthCancel(auth);
+	}
+
+	/**
+	 * 授权成功
+	 * @param reqMap
+	 */
+	public void suiteAuth(Map reqMap) {
+		String suiteId = (String) reqMap.get("SuiteId");
+		String authCode = (String) reqMap.get("AuthCode");
+
+		SuiteAuth auth = new SuiteAuth(suiteId, authCode, null);
+
+		SuiteAuthService service = SpringContextHolder.getBean(SuiteAuthService.class);
+		service.doSuiteAuth(auth);
 	}
 
 	public void updateSuiteTicket(Map map) {
@@ -67,7 +103,6 @@ public class QYCrmOrderHandle implements QYOrderHandle {
 				service.save(newSuiteOrder);
 			}
 		}
-
 	}
 
 }

@@ -7,6 +7,11 @@ DROP INDEX sys_user_login_name ON qy_suite;
 DROP INDEX sys_user_company_id ON qy_suite;
 DROP INDEX sys_user_update_date ON qy_suite;
 DROP INDEX sys_user_del_flag ON qy_suite;
+DROP INDEX sys_user_office_id ON qy_suite_auth;
+DROP INDEX sys_user_login_name ON qy_suite_auth;
+DROP INDEX sys_user_company_id ON qy_suite_auth;
+DROP INDEX sys_user_update_date ON qy_suite_auth;
+DROP INDEX sys_user_del_flag ON qy_suite_auth;
 DROP INDEX sys_user_office_id ON qy_suite_order;
 DROP INDEX sys_user_login_name ON qy_suite_order;
 DROP INDEX sys_user_company_id ON qy_suite_order;
@@ -18,6 +23,7 @@ DROP INDEX sys_user_del_flag ON qy_suite_order;
 /* Drop Tables */
 
 DROP TABLE IF EXISTS qy_suite;
+DROP TABLE IF EXISTS qy_suite_auth;
 DROP TABLE IF EXISTS qy_suite_order;
 
 
@@ -31,8 +37,28 @@ CREATE TABLE qy_suite
 	id varchar(64) NOT NULL COMMENT '编号',
 	name varchar(100) COMMENT '套件名称',
 	suite_id varchar(100) NOT NULL COMMENT 'suite_id',
-	secret varchar(255) COMMENT 'secret',
+	corp_id varchar(255) COMMENT '授权方的corpid',
 	ticket varchar(1000) COMMENT 'ticket,每隔10分钟更新一次',
+	auth_code varchar(1000) COMMENT '授权的auth_code,最长为512字节。用于获取企业的永久授权码',
+	create_by varchar(64) COMMENT '创建者',
+	create_date datetime NOT NULL COMMENT '创建时间',
+	update_by varchar(64) COMMENT '更新者',
+	update_date datetime NOT NULL COMMENT '更新时间',
+	remarks varchar(255) COMMENT '备注信息',
+	del_flag char(1) DEFAULT '0' NOT NULL COMMENT '删除标记（0：正常；1：删除）',
+	auth_date datetime COMMENT '授权时间',
+	PRIMARY KEY (id)
+) COMMENT = '企业应用套件信息';
+
+
+-- 企业应用套件信息
+CREATE TABLE qy_suite_auth
+(
+	id varchar(64) NOT NULL COMMENT '编号',
+	suite_id varchar(100) NOT NULL COMMENT 'suite_id',
+	corp_id varchar(255) NOT NULL COMMENT '授权方的corpid',
+	status char(1) DEFAULT '0' NOT NULL COMMENT '状态（0、授权 1、取消授权）',
+	auth_code varchar(1000) COMMENT '授权的auth_code,最长为512字节。用于获取企业的永久授权码',
 	create_by varchar(64) COMMENT '创建者',
 	create_date datetime NOT NULL COMMENT '创建时间',
 	update_by varchar(64) COMMENT '更新者',
@@ -82,6 +108,11 @@ CREATE INDEX sys_user_login_name ON qy_suite ();
 CREATE INDEX sys_user_company_id ON qy_suite ();
 CREATE INDEX sys_user_update_date ON qy_suite ();
 CREATE INDEX sys_user_del_flag ON qy_suite ();
+CREATE INDEX sys_user_office_id ON qy_suite_auth ();
+CREATE INDEX sys_user_login_name ON qy_suite_auth ();
+CREATE INDEX sys_user_company_id ON qy_suite_auth ();
+CREATE INDEX sys_user_update_date ON qy_suite_auth ();
+CREATE INDEX sys_user_del_flag ON qy_suite_auth ();
 CREATE INDEX sys_user_office_id ON qy_suite_order ();
 CREATE INDEX sys_user_login_name ON qy_suite_order ();
 CREATE INDEX sys_user_company_id ON qy_suite_order ();
