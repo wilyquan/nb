@@ -21,14 +21,14 @@ import com.nb.weixin.company.service.SuiteService;
  * @author jewelvary
  *
  */
-public class QYOrderCrmHandle implements QYOrderHandle {
+public class QYCrmOrderHandle implements QYOrderHandle {
 
-	private static final Logger LOG = LoggerFactory.getLogger(QYOrderCrmHandle.class);
+	private static final Logger LOG = LoggerFactory.getLogger(QYCrmOrderHandle.class);
 
 	/**
 	 * 
 	 */
-	public QYOrderCrmHandle() {
+	public QYCrmOrderHandle() {
 	}
 
 	@Override

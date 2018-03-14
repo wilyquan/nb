@@ -8,11 +8,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.nb.fastweixin.company.handle.QYOrderHandle;
 import com.nb.fastweixin.servlet.QYWeixinControllerSupport;
-import com.nb.weixin.handle.QYOrderCrmHandle;
+import com.nb.weixin.handle.QYCrmOrderHandle;
 
 /**
  * 
  * 企业微信应用
+ * 
+ * 微信消息事件处理
  * 
  * 数据回调url和指令回调url 被确认校验时，appid需要设置为 corp_id 而不是该套件的suit_id
  * 数据回调url被回调时，appid需要设置为 corp_id 而不是该套件的suit_id
@@ -45,7 +47,7 @@ public class QYWeixinCrmDataController extends QYWeixinControllerSupport {
 
 	@Override
 	protected QYOrderHandle initOrderHandle() {
-		return new QYOrderCrmHandle();
+		return new QYCrmOrderHandle();
 	}
 
 	@Override
