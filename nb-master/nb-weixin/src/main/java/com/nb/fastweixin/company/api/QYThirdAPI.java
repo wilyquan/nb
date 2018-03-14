@@ -69,6 +69,8 @@ public class QYThirdAPI extends QYThirdBaseAPI {
 
 		String jsonResult = isSuccess(r.getErrcode()) ? r.getErrmsg() : r.toJsonString();
 		return JSONUtil.toBean(jsonResult, Map.class);
+		
+		
 	}
 	
 	

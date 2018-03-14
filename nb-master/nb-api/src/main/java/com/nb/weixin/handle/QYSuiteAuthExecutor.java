@@ -51,17 +51,19 @@ public class QYSuiteAuthExecutor implements Runnable{
 		}
 	}
 	
-	public void getSuiteToken() {
+	public String getSuiteToken() {
+		
+		String suiteAccessToken = null;
 		
 		String suiteId = (String) reqMap.get("SuiteId");
 		if (StringUtils.isNullOrEmpty(suiteId)) {
 			logger.error("suiteId is not exist exception!");
-			return;
+			return suiteAccessToken;
 		}
 		Suite suite = suiteService.findBySuiteId(suiteId);
 		if (suite ==null) {
 			logger.error("database suite not exist suiteId = {} exception!", suiteId);
-			return;
+			return suiteAccessToken;
 		}
 		
 		QYThirdAPI thirdAPI = new QYThirdAPI();
@@ -69,12 +71,31 @@ public class QYSuiteAuthExecutor implements Runnable{
 		Map suiteTokenMap = thirdAPI.getSuiteToken(suiteId, suite.getSecret(), suite.getTicket());
 		if (suiteTokenMap == null) {
 			logger.error("get_suite_token api result null exeception!");
-			return;
+			return suiteAccessToken;
 		}
 		
 		logger.info("get_suite_token api result {}", suiteTokenMap);
 		
-//		suiteTokenMap
+		int errcode = (int) suiteTokenMap.get("errcode");
+		if (errcode == 0) {
+			suiteAccessToken = (String) suiteTokenMap.get("suite_access_token");
+			
+			int expiresIn = (int) suiteTokenMap.get("expires_in");
+			suite.setSuiteAccessToken(suiteAccessToken);
+			
+			long expires = System.currentTimeMillis() + expiresIn * 1000;
+			suite.setSuiteAccessExpires(expires);
+			
+			suiteService.save(suite);
+			
+		}else {
+			String errmsg = (String) suiteTokenMap.get("errmsg");
+			logger.error("errmsg = {}", errmsg);
+		}
+		
+	}
+	
+	public void getPreAuthCode(String suiteAccessToken) {
 		
 	}
 
