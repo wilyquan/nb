@@ -52,6 +52,15 @@ public abstract class QYWeixinSupport{
      * @return cropId
      */
     protected abstract String getCropId();
+    
+    /**
+     * 第三方应用套件
+     * 
+     * @return
+     */
+    protected String getSuitId() {
+    		return "";
+    }
 
     /**
      * 加密的密钥，消息解密时需要

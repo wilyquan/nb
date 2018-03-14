@@ -18,8 +18,8 @@ import com.nb.weixin.handle.QYOrderCrmHandle;
  *
  */
 @Controller
-@RequestMapping(value = "weixin/qy/crm")
-public class QYWeixinCrmController extends QYWeixinControllerSupport {
+@RequestMapping(value = "weixin/qy/crm/data")
+public class QYWeixinCrmDataController extends QYWeixinControllerSupport {
 
 	@Override
 	protected String getToken() {
