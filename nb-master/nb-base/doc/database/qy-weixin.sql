@@ -39,14 +39,19 @@ CREATE TABLE qy_suite
 	suite_id varchar(100) NOT NULL COMMENT 'suite_id',
 	corp_id varchar(255) COMMENT '授权方的corpid',
 	ticket varchar(1000) COMMENT 'ticket,每隔10分钟更新一次',
-	auth_code varchar(1000) COMMENT '授权的auth_code,最长为512字节。用于获取企业的永久授权码',
+	suite_access_token varchar(1000) COMMENT '第三方应用access_token,最长为512字节',
+	suite_access_expires int(20) COMMENT 'access_token到期时间',
+	pre_auth_code varchar(1000) COMMENT '预授权码',
+	pre_auth_code_expires int(20) COMMENT '预授权码到期时间',
+	auth_code varchar(1000) COMMENT '永久授权码',
+	access_token varchar(1000) COMMENT '企业access_token',
+	access_expires int(20) COMMENT '企业access_token到期时间',
 	create_by varchar(64) COMMENT '创建者',
 	create_date datetime NOT NULL COMMENT '创建时间',
 	update_by varchar(64) COMMENT '更新者',
 	update_date datetime NOT NULL COMMENT '更新时间',
 	remarks varchar(255) COMMENT '备注信息',
 	del_flag char(1) DEFAULT '0' NOT NULL COMMENT '删除标记（0：正常；1：删除）',
-	auth_date datetime COMMENT '授权时间',
 	PRIMARY KEY (id)
 ) COMMENT = '企业应用套件信息';
 

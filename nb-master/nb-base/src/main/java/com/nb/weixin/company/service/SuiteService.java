@@ -21,6 +21,10 @@ import com.nb.weixin.company.entity.Suite;
 @Transactional
 @CacheConfig(cacheNames = "qysuite-cache")
 public class SuiteService extends CrudService<SuiteDao, Suite, String>{
+	
+	public Suite findBySuiteId(String suiteId) {
+		return dao.findBySuiteId(suiteId);
+	}
 
 	public void updateSuiteTicket(Suite suite) {
 		Suite oldSuite = dao.findBySuiteId(suite.getSuiteId());
@@ -32,4 +36,5 @@ public class SuiteService extends CrudService<SuiteDao, Suite, String>{
 		
 		this.save(oldSuite);
 	}
+	
 }
