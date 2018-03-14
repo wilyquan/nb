@@ -37,6 +37,8 @@ public class QYCrmOrderHandle implements QYOrderHandle {
 		String infoType = (String) reqMap.get("InfoType");
 		if (QYOrderType.SUITE_TICKET.equalsIgnoreCase(infoType)) {
 			updateSuiteTicket(reqMap);
+		}else if (QYOrderType.CREATE_AUTH.equalsIgnoreCase(infoType)) {
+			
 		}
 		
 		addSuiteOrder(reqMap);
