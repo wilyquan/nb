@@ -47,19 +47,24 @@ public abstract class QYWeixinSupport{
     protected abstract String getToken();
 
     /**
-     * 子类提供cropId用于绑定微信企业平台
+     * 子类提供cropId用于绑定微信企业平台,
+     * 
+     * 数据回调+指令回调校验时，appid设置为cropid
      *
      * @return cropId
      */
     protected abstract String getCropId();
     
     /**
-     * 第三方应用套件
+     * 第三方应用套件,为第三方应用使用，否则为空
+     * 当实现第三方应用时，重写该方发
+     * 
+     * suite_id只有在第三应用中，指令回调中设置appid为suite_id
      * 
      * @return
      */
     protected String getSuitId() {
-    		return "";
+    		return null;
     }
 
     /**
@@ -68,7 +73,27 @@ public abstract class QYWeixinSupport{
      * @return 密钥
      */
     protected abstract String getAESKey();
-
+    
+    /**
+     * 是否是第三方应用指令回调，当实现指令回调接口时，重新该方法
+     * @return
+     */
+    protected boolean isSuiteOrderCall() {
+    		return false;
+    }
+    
+    /**
+     * 是否是第三方应用指令回调
+     * @return
+     */
+    protected String getAppId() {
+    		if (isSuiteOrderCall()) {
+    			return getSuitId();
+    		}
+    		
+    		return getCropId();
+    }
+    
     /**
      * 微信消息处理器列表
      */
@@ -148,7 +173,7 @@ public abstract class QYWeixinSupport{
      * @return 处理消息的结果，已经是接口要求的XML的报文了
      */
     public String processRequest(HttpServletRequest request){
-        Map<String, Object> reqMap = MessageUtil.parseXml(request, getToken(), getCropId(), getAESKey());
+        Map<String, Object> reqMap = MessageUtil.parseXml(request, getToken(), getAppId(), getAESKey());
         String infoType = (String)reqMap.get("InfoType");
         
         if (infoType != null) {

@@ -42,6 +42,11 @@ public class QYWeixinCrmDataController extends QYWeixinControllerSupport {
 		return new QYOrderCrmHandle();
 	}
 
+	@Override
+	protected String getSuitId() {
+		return "ww99d64c7308049ec2";
+	}
+
 }
 
 //授权信息

@@ -28,8 +28,8 @@ public class QYWeixinCrmOrderController extends QYWeixinControllerSupport {
 
 	@Override
 	protected String getCropId() {
-		return "ww202a2aaa0ae43950";
-//		return "ww99d64c7308049ec2";
+//		return "ww202a2aaa0ae43950";
+		return "ww99d64c7308049ec2";
 	}
 
 	@Override
@@ -45,6 +45,11 @@ public class QYWeixinCrmOrderController extends QYWeixinControllerSupport {
 	@Override
 	protected String getSuitId() {
 		return "ww202a2aaa0ae43950";
+	}
+
+	@Override
+	protected boolean isSuiteOrderCall() {
+		return true;
 	}
 
 }
