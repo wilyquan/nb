@@ -58,7 +58,7 @@ public final class MessageUtil {
                 ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
                 StreamUtil.copy(inputStream, outputStream);
                 String body = outputStream.toString();
-                LOG.info("收到的消息密文:{}", body);
+                LOG.debug("收到的消息密文:{}", body);
 
                 DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
                 DocumentBuilder db = dbf.newDocumentBuilder();
@@ -74,16 +74,16 @@ public final class MessageUtil {
                 String msgSignature = request.getParameter("msg_signature");
                 String timeStamp = request.getParameter("timestamp");
                 String nonce = request.getParameter("nonce");
-                LOG.info("msgSignature:{}", msgSignature);
-                LOG.info("timeStamp:{}", timeStamp);
-                LOG.info("nonce:{}", nonce);
+//                LOG.info("msgSignature:{}", msgSignature);
+//                LOG.info("timeStamp:{}", timeStamp);
+//                LOG.info("nonce:{}", nonce);
                 String encrypt = nodelist1.item(0).getTextContent();
                 String fromXML = String.format(FORMAT, encrypt);
                 
-                LOG.info("fromXML:{}", fromXML);
-                LOG.info("encrypt:{}", encrypt);
+//                LOG.info("fromXML:{}", fromXML);
+//                LOG.info("encrypt:{}", encrypt);
                 String message = pc.decryptMsg(msgSignature, timeStamp, nonce, fromXML);
-                LOG.info("message:{}", message);
+                LOG.info("message: \r\n {}", message);
                 inputStream = new ByteArrayInputStream(message.getBytes());
             }
             XMLInputFactory factory = XMLInputFactory.newInstance();

@@ -64,9 +64,9 @@ public class WXBizMsgCrypt {
             throw new AesException(AesException.IllegalAesKey);
         }
         
-        LOG.info("token = {}", token);
-        LOG.info("appId= {}", appId);
-        LOG.info("encodingAesKey = {}", encodingAesKey);
+//        LOG.info("token = {}", token);
+//        LOG.info("appId= {}", appId);
+//        LOG.info("encodingAesKey = {}", encodingAesKey);
         this.token = token;
         this.appId = appId;
         aesKey = Base64.decodeBase64(encodingAesKey + "=");

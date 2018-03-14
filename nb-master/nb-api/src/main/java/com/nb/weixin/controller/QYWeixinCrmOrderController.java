@@ -14,6 +14,12 @@ import com.nb.weixin.handle.QYOrderCrmHandle;
  * 
  * 企业微信应用
  * 
+ * 数据回调url和指令回调url 被确认校验时，appid需要设置为 corp_id 而不是该套件的suit_id
+ * 数据回调url被回调时，appid需要设置为 corp_id 而不是该套件的suit_id
+ * 指令回调url被回调时，appid需要设置为 suit_id 而不是该套件的corp_id
+ * 同时token和EncodingAESKey用suite里面的。
+ * 非常奇怪企业微信为什么会这样设置?
+ * 
  * @author jewelvary
  *
  */
