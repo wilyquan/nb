@@ -43,6 +43,8 @@ public class QYCrmOrderHandle implements QYOrderHandle {
 			return true;
 		} else if (QYOrderType.CREATE_AUTH.equalsIgnoreCase(infoType)) {
 			suiteAuth(reqMap);
+			QYSuiteAuthExecutor executor = new QYSuiteAuthExecutor(reqMap);
+			executor.execute();
 		} else if (QYOrderType.CANCEL_AUTH.equalsIgnoreCase(infoType)) {
 			suiteAuthCancel(reqMap);
 		}
