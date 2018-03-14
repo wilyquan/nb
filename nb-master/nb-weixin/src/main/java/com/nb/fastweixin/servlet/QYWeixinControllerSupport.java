@@ -82,7 +82,7 @@ public abstract class QYWeixinControllerSupport extends QYWeixinSupport {
 			return echoStr;
 		}
 		try {
-			WXBizMsgCrypt pc = new WXBizMsgCrypt(getToken(), getAESKey(), "ww202a2aaa0ae43950");
+			WXBizMsgCrypt pc = new WXBizMsgCrypt(getToken(), getAESKey(), "ww99d64c7308049ec2");
 			echoStr = pc.verifyUrl(request.getParameter("msg_signature"), request.getParameter("timestamp"),
 					request.getParameter("nonce"), request.getParameter("echostr"));
 		} catch (AesException e) {
