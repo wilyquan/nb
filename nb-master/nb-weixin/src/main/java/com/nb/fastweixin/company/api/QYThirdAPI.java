@@ -78,7 +78,7 @@ public class QYThirdAPI extends QYThirdBaseAPI {
 //		int errcode = (int) r.get("errcode");
 		if (isOk(r)) {
 			String providerAccessToken = (String) r.get("provider_access_token");
-			long expires_in = (long) r.get("expires_in");
+			int expires_in = (int) r.get("expires_in");
 			return new Token(providerAccessToken, expires_in);
 		}
 		return null;
@@ -363,6 +363,12 @@ public class QYThirdAPI extends QYThirdBaseAPI {
 		return getResult(r);
 	}
 	
+	/**
+	 * isOk
+	 * @param providerAccessToken
+	 * @param authCode
+	 * @return
+	 */
 	public Map getLoginInfo(String providerAccessToken, String authCode)
 	{
 		if (StrUtil.isBlank(providerAccessToken)) {
