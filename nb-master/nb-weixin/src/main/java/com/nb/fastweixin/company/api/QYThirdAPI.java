@@ -75,8 +75,8 @@ public class QYThirdAPI extends QYThirdBaseAPI {
 	public static Token getProviderAccessToken(String corpId, String providerSecret) {
 		QYThirdAPI thirdAPI = new QYThirdAPI();
 		Map r = thirdAPI.getProviderToken(corpId, providerSecret);
-		int errcode = (int) r.get("errcode");
-		if (errcode == 0) {
+//		int errcode = (int) r.get("errcode");
+		if (isOk(r)) {
 			String providerAccessToken = (String) r.get("provider_access_token");
 			long expires_in = (long) r.get("expires_in");
 			return new Token(providerAccessToken, expires_in);
@@ -388,4 +388,16 @@ public class QYThirdAPI extends QYThirdBaseAPI {
 		return JSONUtil.toBean(jsonResult, Map.class);
 	}
 
+	public static boolean isOk(Map r) {
+		Object errCode = r.get("errcode");
+		if (errCode == null) {
+			return true;
+		}
+		if (errCode instanceof Number) {
+			if (((Number) errCode).intValue() == 0) {
+				return true;
+			}
+		}
+		return false;
+	}
 }
