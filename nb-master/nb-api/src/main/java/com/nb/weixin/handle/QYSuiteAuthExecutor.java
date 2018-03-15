@@ -109,7 +109,7 @@ public class QYSuiteAuthExecutor implements Runnable {
 		if (isOk(suiteTokenMap)) {
 			suiteAccessToken = (String) suiteTokenMap.get("suite_access_token");
 
-			int expiresIn = (int) suiteTokenMap.get("expires_in");
+			long expiresIn = ((Number) suiteTokenMap.get("expires_in")).longValue();
 			suite.setSuiteAccessToken(suiteAccessToken);
 
 			long expires = System.currentTimeMillis() + (expiresIn - 10);
@@ -146,7 +146,7 @@ public class QYSuiteAuthExecutor implements Runnable {
 //		int errcode = (int) r.get("errcode");
 		if (isOk(r)) {
 			preAuthCode = (String) r.get("pre_auth_code");
-			int expiresIn = (int) r.get("expires_in");
+			long expiresIn = ((Number) r.get("expires_in")).longValue();
 
 			Suite suite = suiteService.findBySuiteId(suiteId);
 			suite.setPreAuthCode(preAuthCode);

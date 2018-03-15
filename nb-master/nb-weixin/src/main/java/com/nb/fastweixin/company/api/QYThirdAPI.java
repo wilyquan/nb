@@ -78,7 +78,7 @@ public class QYThirdAPI extends QYThirdBaseAPI {
 //		int errcode = (int) r.get("errcode");
 		if (isOk(r)) {
 			String providerAccessToken = (String) r.get("provider_access_token");
-			int expires_in = (int) r.get("expires_in");
+			long expires_in = ((Number) r.get("expires_in")).longValue();
 			return new Token(providerAccessToken, expires_in);
 		}
 		return null;
