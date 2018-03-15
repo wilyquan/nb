@@ -212,7 +212,7 @@ public class QYSuiteAuthExecutor implements Runnable {
 		Map r = thirdAPI.getPermanentCode(suiteAccessToken, authCode);
 //		int errcode = (int) r.get("errcode");
 		if (isOk(r)) {
-			logger.info("----------------授权信息---------------");
+			logger.info("----------------授权信息成功---------------");
 			logger.info(JSONUtil.toJson(r));
 
 			String permanentCode = (String) r.get("permanent_code");
@@ -225,6 +225,9 @@ public class QYSuiteAuthExecutor implements Runnable {
 
 			return permanentCode;
 			// Suite suite = suiteService.findBySuiteId(suiteId);
+		}else {
+			logger.info("----------------授权信息失败---------------");
+			logger.info(JSONUtil.toJson(r));
 		}
 
 		return null;
