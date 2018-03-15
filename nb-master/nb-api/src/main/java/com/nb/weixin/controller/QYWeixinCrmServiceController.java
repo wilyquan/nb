@@ -35,11 +35,12 @@ public class QYWeixinCrmServiceController {
 	protected static final Logger LOG = LoggerFactory.getLogger(QYWeixinCrmServiceController.class);
 	
 	@GetMapping
-	public String index(String authCode) {
+	public String index(String auth_code) {
+		LOG.info("auth_code = {} ", auth_code);
 //		model.put("time", new Date());
 //		model.put("message", this.message);
 		QYSuiteAuthExecutor executor = new QYSuiteAuthExecutor();
-		String permanentCode = executor.getPermanentCode(authCode);
+		String permanentCode = executor.getPermanentCode(auth_code);
 		if(permanentCode !=null) {
 			LOG.info("permanentCode = {} ", permanentCode);
 		}
