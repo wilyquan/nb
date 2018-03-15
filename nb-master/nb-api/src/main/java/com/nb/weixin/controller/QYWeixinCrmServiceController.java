@@ -25,6 +25,8 @@ import com.nb.weixin.handle.QYSuiteAuthExecutor;
  * 
  * 企业微信业务
  * 
+ * 第三方应用的业务设置及数据需前往服务商后台查看
+ * 
  * @author jewelvary
  *
  */
@@ -35,6 +37,15 @@ public class QYWeixinCrmServiceController {
 	protected static final Logger LOG = LoggerFactory.getLogger(QYWeixinCrmServiceController.class);
 	
 	private static final String suiteId = "ww202a2aaa0ae43950";
+	
+	/**
+	 * 用户企业微信后台，前往商户服务台是被调用。
+	 * 
+	 * 可以获得登陆用户的信息
+	 * 
+	 * @param auth_code
+	 * @return
+	 */
 	@GetMapping
 	public String index(String auth_code) {
 		LOG.info("auth_code = {} ", auth_code);
