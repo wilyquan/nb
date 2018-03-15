@@ -236,6 +236,46 @@ public class QYSuiteAuthExecutor implements Runnable {
 		// Map r = QYThirdAPI thirdAPI = new QYThirdAPI();
 		// thirdAPI.getPermanentCode(suiteAccessToken, authCode)
 	}
+	
+	public String getLoginInfo(String authCode) {
+		if (StringUtils.isNullOrEmpty(authCode)) {
+			logger.error("authCode is null exception!");
+			return null;
+		}
+		String providerAccessToken =
+				 QYTokenPreference.getInstance().getProviderAccessToken();
+		if (StringUtils.isNullOrEmpty(providerAccessToken)) {
+			logger.error("providerAccessToken is null exception!");
+			return null;
+		}
+
+		QYThirdAPI thirdAPI = new QYThirdAPI();
+		Map r = thirdAPI.getLoginInfo(providerAccessToken, authCode);
+//		int errcode = (int) r.get("errcode");
+		if (isOk(r)) {
+			logger.info("----------------getLoginInfo成功---------------");
+			logger.info(JSONUtil.toJson(r));
+
+//			String permanentCode = (String) r.get("permanent_code");
+//			String accessToken = (String) r.get("access_token");
+//			String expires_in = (String) r.get("expires_in");
+//
+//			Map authCorpInfo = (Map) r.get("auth_corp_info");
+//			String corpid = (String) authCorpInfo.get("corpid");
+//			String corp_name = (String) authCorpInfo.get("corp_name");
+
+			return null;
+			// Suite suite = suiteService.findBySuiteId(suiteId);
+		}else {
+			logger.info("----------------getLoginInfo失败---------------");
+			logger.info(JSONUtil.toJson(r));
+		}
+
+		return null;
+		
+		// Map r = QYThirdAPI thirdAPI = new QYThirdAPI();
+		// thirdAPI.getPermanentCode(suiteAccessToken, authCode)
+	}
 
 	public String getSuiteId() {
 		return suiteId;

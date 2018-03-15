@@ -41,10 +41,10 @@ public class QYWeixinCrmServiceController {
 //		model.put("time", new Date());
 //		model.put("message", this.message);
 		QYSuiteAuthExecutor executor = new QYSuiteAuthExecutor(suiteId);
-		String permanentCode = executor.getPermanentCode(auth_code);
-		if(permanentCode !=null) {
-			LOG.info("permanentCode = {} ", permanentCode);
-		}
+		String permanentCode = executor.getLoginInfo(auth_code);
+//		if(permanentCode !=null) {
+//			LOG.info("permanentCode = {} ", permanentCode);
+//		}
 		return "sucess";
 	}
 }

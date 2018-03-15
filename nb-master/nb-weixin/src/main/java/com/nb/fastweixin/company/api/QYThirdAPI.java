@@ -363,6 +363,25 @@ public class QYThirdAPI extends QYThirdBaseAPI {
 		return getResult(r);
 	}
 	
+	public Map getLoginInfo(String providerAccessToken, String authCode)
+	{
+		if (StrUtil.isBlank(providerAccessToken)) {
+			LOG.error("providerAccessToken null exception");
+			return null;
+		}
+		if (StrUtil.isBlank(authCode)) {
+			LOG.error("authCode null exception");
+			return null;
+		}
+		
+		String url = BASE_API_URL + "cgi-bin/service/get_login_info?access_token=" + providerAccessToken;
+		Map param = new HashMap();
+		param.put("auth_code", authCode);
+		
+		BaseResponse r = executePost(url, param);
+
+		return getResult(r);
+	}
 
 	private Map getResult(BaseResponse r) {
 		String jsonResult = isSuccess(r.getErrcode()) ? r.getErrmsg() : r.toJsonString();
