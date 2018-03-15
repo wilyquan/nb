@@ -3,6 +3,7 @@ package com.nb.fastweixin.company.api;
 import com.nb.fastweixin.api.enums.QYAuthType;
 import com.nb.fastweixin.api.response.BaseResponse;
 import com.nb.fastweixin.company.api.config.QYAPIConfig;
+import com.nb.fastweixin.company.api.config.Token;
 import com.nb.fastweixin.company.api.entity.QYAgent;
 import com.nb.fastweixin.company.api.enums.QYResultType;
 import com.nb.fastweixin.company.api.response.GetQYAgentInfoResponse;
@@ -18,13 +19,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 第三方应用接口 ====================================================================
+ * 第三方应用接口 
+ * ====================================================================
  * 
  * --------------------------------------------------------------------
  * 
  * @author willie
  * @version 1.0.beta
- *          ====================================================================
+ * ====================================================================
  */
 public class QYThirdAPI extends QYThirdBaseAPI {
 
@@ -38,6 +40,48 @@ public class QYThirdAPI extends QYThirdBaseAPI {
 	 */
 	public QYThirdAPI() {
 		// super(config);
+	}
+	
+	/**
+	 * 服务商的token
+		以corpid、provider_secret（获取方法为：登录服务商管理后台->标准应用服务->通用开发参数，可以看到）
+		换取provider_access_token，代表的是服务商的身份，而与应用无关。请求单点登录、注册定制化等接口需要用到该凭证。接口详情如下：
+	 * @param corpId
+	 * @param providerSecret
+	 * @return
+	 */
+	public Map getProviderToken(String corpId, String providerSecret) {
+		if (StrUtil.isBlank(corpId)) {
+			LOG.error("corpId null exception");
+			return null;
+		}
+		if (StrUtil.isBlank(providerSecret)) {
+			LOG.error("providerSecret null exception");
+			return null;
+		}
+
+		String url = BASE_API_URL + "cgi-bin/service/get_provider_token";
+
+		Map param = new HashMap();
+		param.put("corpid", corpId);
+		param.put("provider_secret", providerSecret);
+
+
+		BaseResponse r = executePost(url, param);
+
+		return getResult(r);
+	}
+	
+	public static Token getProviderAccessToken(String corpId, String providerSecret) {
+		QYThirdAPI thirdAPI = new QYThirdAPI();
+		Map r = thirdAPI.getProviderToken(corpId, providerSecret);
+		int errcode = (int) r.get("errcode");
+		if (errcode == 0) {
+			String providerAccessToken = (String) r.get("provider_access_token");
+			long expires_in = (long) r.get("expires_in");
+			return new Token(providerAccessToken, expires_in);
+		}
+		return null;
 	}
 
 	/**
@@ -325,73 +369,4 @@ public class QYThirdAPI extends QYThirdBaseAPI {
 		return JSONUtil.toBean(jsonResult, Map.class);
 	}
 
-	/**
-	 * 获取全部应用列表
-	 * 
-	 * @return 应用列表
-	 */
-	public GetQYAgentListResponse getAll() {
-		GetQYAgentListResponse response;
-		String url = BASE_API_URL + "cgi-bin/agent/list?access_token=#";
-		BaseResponse r = executeGet(url);
-		String jsonResult = isSuccess(r.getErrcode()) ? r.getErrmsg() : r.toJsonString();
-		response = JSONUtil.toBean(jsonResult, GetQYAgentListResponse.class);
-		return response;
-	}
-
-	/**
-	 * 获取应用信息
-	 * 
-	 * @param agentId
-	 *            应用ID
-	 * @return 应用信息
-	 */
-	public GetQYAgentInfoResponse getInfo(String agentId) {
-		BeanUtil.requireNonNull(agentId, "agentId is null");
-		GetQYAgentInfoResponse response;
-		String url = BASE_API_URL + "cgi-bin/agent/get?access_token=#&agentid=" + agentId;
-		BaseResponse r = executeGet(url);
-		String jsonResult = isSuccess(r.getErrcode()) ? r.getErrmsg() : r.toJsonString();
-		response = JSONUtil.toBean(jsonResult, GetQYAgentInfoResponse.class);
-		return response;
-	}
-
-	/**
-	 * 设置应用信息 -----------------------------------------------
-	 * 设置应用信息方法使用新的update方法代替。 -----------------------------------------------
-	 * 
-	 * @param agent
-	 *            应用对象
-	 * @param mediaId
-	 *            应用的logo
-	 * @return 创建结果
-	 */
-	@Deprecated
-	public QYResultType create(QYAgent agent, String mediaId) {
-		String url = BASE_API_URL + "cgi-bin/agent/set?access_token=#";
-		final Map<String, Object> params = new HashMap<String, Object>();
-		params.put("agentid", agent.getAgentId());
-		params.put("report_location_flag", String.valueOf(agent.getReportLocationFlag()));
-		params.put("logo_mediaid", mediaId);
-		params.put("name", agent.getName());
-		params.put("description", agent.getDescription());
-		params.put("redirect_domain", agent.getRedirectDomain());
-		params.put("isreportuser", agent.getIsReportUser());
-		params.put("isreportenter", agent.getIsReportEnter());
-		BaseResponse response = executePost(url, JSONUtil.toJson(params));
-		return QYResultType.get(response.getErrcode());
-	}
-
-	/**
-	 * 新的设置应用信息
-	 * 
-	 * @param params
-	 *            参数
-	 * @return 返回结果
-	 */
-	public QYResultType update(Map<String, Object> params) {
-		String url = BASE_API_URL + "cgi-bin/agent/set?access_token=#";
-		BaseResponse response = executePost(url, JSONUtil.toJson(params));
-		return QYResultType.get(response.getErrcode());
-	}
 }

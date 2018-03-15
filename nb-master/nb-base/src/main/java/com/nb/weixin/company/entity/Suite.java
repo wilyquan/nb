@@ -137,6 +137,47 @@ public class Suite extends DbEntity {
 	public void setAccessExpires(long accessExpires) {
 		this.accessExpires = accessExpires;
 	}
+	
+	/**
+	 * suite_access_token 是否过期
+	 */
+	public boolean isSuiteAccessExpiresIn() {
+		long now = System.currentTimeMillis();
+		if (now >= this.suiteAccessExpires) {
+			return true;
+		}
+		
+		return false;
+	}
+	
+	/**
+	 * 预授权码 是否过期
+	 * @return
+	 */
+	public boolean isPreAuthCodeExpiresIn() {
+		long now = System.currentTimeMillis();
+		if (now >= this.preAuthCodeExpires) {
+			return true;
+		}
+		
+		return false;
+	}
+	
+	/**
+	 * 企业access_token 是否过期
+	 * @return
+	 */
+	public boolean isAccessExpiresIn() {
+		long now = System.currentTimeMillis();
+		if (now >= this.accessExpires) {
+			return true;
+		}
+		
+		return false;
+	}
+	
+	
+	
 
 	public Suite convert(Map obj) {
 		if (obj != null) {
