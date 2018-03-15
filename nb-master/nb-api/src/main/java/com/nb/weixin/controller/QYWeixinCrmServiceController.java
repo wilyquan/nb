@@ -34,12 +34,13 @@ public class QYWeixinCrmServiceController {
 
 	protected static final Logger LOG = LoggerFactory.getLogger(QYWeixinCrmServiceController.class);
 	
+	private static final String suiteId = "ww202a2aaa0ae43950";
 	@GetMapping
 	public String index(String auth_code) {
 		LOG.info("auth_code = {} ", auth_code);
 //		model.put("time", new Date());
 //		model.put("message", this.message);
-		QYSuiteAuthExecutor executor = new QYSuiteAuthExecutor();
+		QYSuiteAuthExecutor executor = new QYSuiteAuthExecutor(suiteId);
 		String permanentCode = executor.getPermanentCode(auth_code);
 		if(permanentCode !=null) {
 			LOG.info("permanentCode = {} ", permanentCode);

@@ -30,21 +30,28 @@ public class QYSuiteAuthExecutor implements Runnable {
 
 	private static ExecutorService fixThreadExecutor = Executors.newFixedThreadPool(3);
 
-	private Map reqMap;
+//	private Map reqMap;
+	
+	private String suiteId;
 
 	private SuiteService suiteService;
 
 	public QYSuiteAuthExecutor() {
-
+		suiteService = SpringContextHolder.getBean(SuiteService.class);
+	}
+	
+	public QYSuiteAuthExecutor(String suiteId) {
+		this.suiteId = suiteId;
+		suiteService = SpringContextHolder.getBean(SuiteService.class);
 	}
 
 	/**
 	 * 
 	 */
-	public QYSuiteAuthExecutor(Map reqMap) {
-		this.reqMap = reqMap;
-		suiteService = SpringContextHolder.getBean(SuiteService.class);
-	}
+//	public QYSuiteAuthExecutor(Map reqMap) {
+//		this.reqMap = reqMap;
+//		suiteService = SpringContextHolder.getBean(SuiteService.class);
+//	}
 
 	public void execute() {
 		fixThreadExecutor.execute(this);
@@ -72,7 +79,7 @@ public class QYSuiteAuthExecutor implements Runnable {
 
 		String suiteAccessToken = null;
 
-		String suiteId = (String) reqMap.get("SuiteId");
+//		String suiteId = (String) reqMap.get("SuiteId");
 		if (StringUtils.isNullOrEmpty(suiteId)) {
 			logger.error("suiteId is not exist exception!");
 			return suiteAccessToken;
@@ -226,5 +233,15 @@ public class QYSuiteAuthExecutor implements Runnable {
 		// Map r = QYThirdAPI thirdAPI = new QYThirdAPI();
 		// thirdAPI.getPermanentCode(suiteAccessToken, authCode)
 	}
+
+	public String getSuiteId() {
+		return suiteId;
+	}
+
+	public void setSuiteId(String suiteId) {
+		this.suiteId = suiteId;
+	}
+	
+	
 
 }
