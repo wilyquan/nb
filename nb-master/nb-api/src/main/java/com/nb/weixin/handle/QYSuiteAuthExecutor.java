@@ -254,6 +254,7 @@ public class QYSuiteAuthExecutor implements Runnable {
 //		int errcode = (int) r.get("errcode");
 		if (isOk(r)) {
 			logger.info("----------------getLoginInfo成功---------------");
+			logger.info(r.toString());
 			logger.info(JSONUtil.toJson(r));
 
 //			String permanentCode = (String) r.get("permanent_code");
