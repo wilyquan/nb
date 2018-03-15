@@ -43,6 +43,7 @@ CREATE TABLE qy_suite
 	id varchar(64) NOT NULL COMMENT '编号',
 	name varchar(100) COMMENT '套件名称',
 	suite_id varchar(100) NOT NULL COMMENT 'suite_id',
+	secret varchar(500) COMMENT '应用secret',
 	corp_id varchar(255) COMMENT '授权方的corpid',
 	ticket varchar(1000) COMMENT 'ticket,每隔10分钟更新一次',
 	suite_access_token varchar(1000) COMMENT '第三方应用access_token,最长为512字节',

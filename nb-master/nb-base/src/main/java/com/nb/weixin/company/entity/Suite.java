@@ -143,7 +143,7 @@ public class Suite extends DbEntity {
 	 */
 	public boolean isSuiteAccessExpiresIn() {
 		long now = System.currentTimeMillis();
-		if (now >= this.suiteAccessExpires) {
+		if (now/1000 >= this.suiteAccessExpires) {
 			return true;
 		}
 		

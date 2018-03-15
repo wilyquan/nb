@@ -105,14 +105,14 @@ public class QYSuiteAuthExecutor implements Runnable {
 
 		logger.info("get_suite_token api result {}", suiteTokenMap);
 
-		int errcode = (int) suiteTokenMap.get("errcode");
-		if (errcode == 0) {
+//		int errcode = (int) suiteTokenMap.get("errcode");
+		if (isOk(suiteTokenMap)) {
 			suiteAccessToken = (String) suiteTokenMap.get("suite_access_token");
 
 			int expiresIn = (int) suiteTokenMap.get("expires_in");
 			suite.setSuiteAccessToken(suiteAccessToken);
 
-			long expires = System.currentTimeMillis() + (expiresIn - 10) * 1000;
+			long expires = System.currentTimeMillis() + (expiresIn - 10);
 			suite.setSuiteAccessExpires(expires);
 
 			suiteService.save(suite);
@@ -143,14 +143,14 @@ public class QYSuiteAuthExecutor implements Runnable {
 
 		QYThirdAPI thirdAPI = new QYThirdAPI();
 		Map r = thirdAPI.getPreAuthCode(suiteAccessToken);
-		int errcode = (int) r.get("errcode");
-		if (errcode == 0) {
+//		int errcode = (int) r.get("errcode");
+		if (isOk(r)) {
 			preAuthCode = (String) r.get("pre_auth_code");
 			int expiresIn = (int) r.get("expires_in");
 
 			Suite suite = suiteService.findBySuiteId(suiteId);
 			suite.setPreAuthCode(preAuthCode);
-			long expires = System.currentTimeMillis() + (expiresIn - 10) * 1000;
+			long expires = System.currentTimeMillis() + (expiresIn - 10);
 			suite.setPreAuthCodeExpires(expires);
 
 			suiteService.save(suite);
@@ -178,8 +178,8 @@ public class QYSuiteAuthExecutor implements Runnable {
 		QYThirdAPI thirdAPI = new QYThirdAPI();
 		Map r = thirdAPI.setSessionInfo(suiteAccessToken, preAuthCode, authType);
 
-		int errcode = (int) r.get("errcode");
-		if (errcode == 0) {
+//		int errcode = (int) r.get("errcode");
+		if (isOk(r)) {
 			logger.info("设置授权配置 success !");
 		} else {
 			String errmsg = (String) r.get("errmsg");
@@ -210,8 +210,8 @@ public class QYSuiteAuthExecutor implements Runnable {
 
 		QYThirdAPI thirdAPI = new QYThirdAPI();
 		Map r = thirdAPI.getPermanentCode(suiteAccessToken, authCode);
-		int errcode = (int) r.get("errcode");
-		if (errcode == 0) {
+//		int errcode = (int) r.get("errcode");
+		if (isOk(r)) {
 			logger.info("----------------授权信息---------------");
 			logger.info(JSONUtil.toJson(r));
 
@@ -240,6 +240,19 @@ public class QYSuiteAuthExecutor implements Runnable {
 
 	public void setSuiteId(String suiteId) {
 		this.suiteId = suiteId;
+	}
+	
+	public boolean isOk(Map r) {
+		Object errCode = r.get("errcode");
+		if (errCode == null) {
+			return true;
+		}
+		if (errCode instanceof Number) {
+			if (((Number) errCode).intValue() == 0) {
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	
