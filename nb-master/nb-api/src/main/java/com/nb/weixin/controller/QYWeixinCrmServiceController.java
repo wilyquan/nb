@@ -60,7 +60,7 @@ public class QYWeixinCrmServiceController {
 	}
 	
 	@GetMapping("loginAuth")
-	public String loginAuth(String auth_code) {
+	public ModelAndView loginAuth(String auth_code) {
 		LOG.info("auth_code = {} ", auth_code);
 //		model.put("time", new Date());
 //		model.put("message", this.message);
@@ -69,7 +69,7 @@ public class QYWeixinCrmServiceController {
 //		if(permanentCode !=null) {
 //			LOG.info("permanentCode = {} ", permanentCode);
 //		}
-		return "sucess";
+		return new ModelAndView("example/index");
 	}
 	
 	@GetMapping("login")
