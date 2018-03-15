@@ -3,6 +3,7 @@ package com.nb.fastweixin.util;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.google.gson.Gson;
 
 import static com.nb.fastweixin.util.BeanUtil.requireNonNull;
 import static com.nb.fastweixin.util.StrUtil.isBlank;
@@ -65,6 +66,12 @@ public final class JSONUtil {
         jo.put(JSON.DEFAULT_TYPE_KEY, beanClass.getName());
         return JSON.parseObject(jo.toJSONString(), beanClass);
     }
+    
+    public static <T> T toGBean(String jsonStr, Class<T> beanClass) {
+        requireNonNull(jsonStr, "jsonStr is null");
+        Gson gson = new Gson();
+        return gson.fromJson(jsonStr, beanClass);
+    }
 
     /**
      * @param obj 需要转换的java bean
@@ -74,6 +81,12 @@ public final class JSONUtil {
     public static <T> String toJson(T obj) {
         requireNonNull(obj, "obj is null");
         return JSON.toJSONString(obj, DEFAULT_FORMAT);
+    }
+    
+    public static <T> String toGJson(T obj) {
+        requireNonNull(obj, "obj is null");
+        Gson gson = new Gson();
+        return gson.toJson(obj);
     }
 
     /**
@@ -85,6 +98,12 @@ public final class JSONUtil {
     public static String toJson(Map<String, Object> map) {
         requireNonNull(map, "map is null");
         return JSON.toJSONString(map, DEFAULT_FORMAT);
+    }
+    
+    public static String toGJson(Map<String, Object> map) {
+        requireNonNull(map, "map is null");
+        Gson gson = new Gson();
+        return gson.toJson(map);
     }
 
     /**
@@ -107,6 +126,12 @@ public final class JSONUtil {
     public static Map<String, Object> toMap(String jsonString) {
         requireNonNull(jsonString, "jsonString is null");
         return getJSONFromString(jsonString);
+    }
+    
+    public static Map<String, Object> toGMap(String jsonString) {
+        requireNonNull(jsonString, "jsonString is null");
+        Gson gson = new Gson();
+        return gson.fromJson(jsonString, Map.class);
     }
 
 }

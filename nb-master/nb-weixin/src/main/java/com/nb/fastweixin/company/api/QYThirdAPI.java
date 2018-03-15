@@ -393,7 +393,7 @@ public class QYThirdAPI extends QYThirdBaseAPI {
 		LOG.error("原始jsonstring = {}", r.toJsonString());
 		String jsonResult = isSuccess(r.getErrcode()) ? r.getErrmsg() : r.toJsonString();
 		LOG.error("原始jsonResult = {}", r.toJsonString());
-		return JSONUtil.toBean(jsonResult, Map.class);
+		return JSONUtil.toGBean(jsonResult, Map.class);
 	}
 
 	public static boolean isOk(Map r) {

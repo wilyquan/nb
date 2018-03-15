@@ -255,7 +255,7 @@ public class QYSuiteAuthExecutor implements Runnable {
 		if (isOk(r)) {
 			logger.info("----------------getLoginInfo成功---------------");
 			logger.info(r.toString());
-			logger.info(JSONUtil.toJson(r));
+			logger.info(JSONUtil.toGJson(r));
 
 //			String permanentCode = (String) r.get("permanent_code");
 //			String accessToken = (String) r.get("access_token");
