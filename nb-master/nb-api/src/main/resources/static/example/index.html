@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html lang="zh-cmn-Hans">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
-    <title>WeUI</title>
-    <link rel="stylesheet" th:href="@{/example/style/weui.css}" />
-	<link rel="stylesheet" th:href="@{/example/example.css}" />
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+<title>WeUI</title>
+<link rel="stylesheet" th:href="@{/example/style/weui.css}" />
+<link rel="stylesheet" th:href="@{/example/example.css}" />
+
 </head>
 <body ontouchstart>
-    <div class="weui-toptips weui-toptips_warn js_tooltips">错误提示</div>
+	<div class="weui-toptips weui-toptips_warn js_tooltips">错误提示</div>
 
-    <div class="container" id="container"></div>
+	<div class="container" id="container"></div>
 
-    <script type="text/html" id="tpl_home">
+	<script type="text/html" id="tpl_home">
 <div class="page">
     <div class="page__hd">
         <h1 class="page__title">
-            <img th:src="@{/example/images/logo.png}" alt="WeUI" height="21px" />
+            <img src="./images/logo.png" alt="WeUI" height="21px" />
         </h1>
 	    <p class="page__desc"></p>
-        <a href="https://open.work.weixin.qq.com/wwopen/sso/3rd_qrConnect?appid=ww99d64c7308049ec2&redirect_uri=http://admin.zhekoucat.cn"><img src="//rescdn.qqmail.com/node/ww/wwopenmng/style/images/independent/brand/300x40_blue$cecbbc4e.png" srcset="//rescdn.qqmail.com/node/ww/wwopenmng/style/images/independent/brand/300x40_blue_2x$c22687e4.png 2x" alt="企业微信登录"></a>
         <p class="page__desc">WeUI for Work 是由微信官方设计团队基于 WeUI 为企业微信开发者量身设计的 UI 库，令用户的使用感知更加统一。</p>
     </div>
     <div class="page__bd page__bd_spacing">
@@ -273,8 +274,8 @@
         });
     });
 </script>
-</script>
-    <script type="text/html" id="tpl_button">
+	</script>
+	<script type="text/html" id="tpl_button">
 <div class="page">
     <div class="page__hd">
         <h1 class="page__title">Button</h1>
@@ -307,7 +308,7 @@
 </div>
 
 </script>
-    <script type="text/html" id="tpl_list">
+	<script type="text/html" id="tpl_list">
 <div class="page">
     <div class="page__hd">
         <h1 class="page__title">List</h1>
@@ -414,7 +415,7 @@
     </div>
 </div>
 </script>
-    <script type="text/html" id="tpl_input">
+	<script type="text/html" id="tpl_input">
 <div class="page">
     <div class="page__hd">
         <h1 class="page__title">Input</h1>
@@ -640,8 +641,8 @@
         });
     });
 </script>
-</script>
-    <script type="text/html" id="tpl_toast">
+	</script>
+	<script type="text/html" id="tpl_toast">
 <div class="page">
     <div class="page__hd">
         <h1 class="page__title">Toast</h1>
@@ -702,8 +703,8 @@
     });
 </script>
 
-</script>
-    <script type="text/html" id="tpl_dialog">
+	</script>
+	<script type="text/html" id="tpl_dialog">
 <div class="page">
     <div class="page__hd">
         <h1 class="page__title">Dialog</h1>
@@ -800,8 +801,8 @@
         });
     });
 </script>
-</script>
-    <script type="text/html" id="tpl_progress">
+	</script>
+	<script type="text/html" id="tpl_progress">
 <div class="page">
     <div class="page__hd">
         <h1 class="page__title">Progress</h1>
@@ -867,8 +868,8 @@
         });
     });
 </script>
-</script>
-    <script type="text/html" id="tpl_msg">
+	</script>
+	<script type="text/html" id="tpl_msg">
 <div class="page">
     <div class="page__hd">
         <h1 class="page__title">Msg</h1>
@@ -883,7 +884,7 @@
     </div>
 </div>
 </script>
-    <script type="text/html" id="tpl_msg_success">
+	<script type="text/html" id="tpl_msg_success">
 <div class="page">
     <div class="weui-msg">
         <div class="weui-msg__icon-area"><i class="weui-icon-success weui-icon_msg"></i></div>
@@ -908,7 +909,7 @@
     </div>
 </div>
 </script>
-    <script type="text/html" id="tpl_msg_warn">
+	<script type="text/html" id="tpl_msg_warn">
 <div class="page">
     <div class="weui-msg">
         <div class="weui-msg__icon-area"><i class="weui-icon-warn weui-icon_msg"></i></div>
@@ -933,7 +934,7 @@
     </div>
 </div>
 </script>
-    <script type="text/html" id="tpl_article">
+	<script type="text/html" id="tpl_article">
 <div class="page">
     <div class="page__hd">
         <h1 class="page__title">Article</h1>
@@ -974,7 +975,7 @@
     </div>
 </div>
 </script>
-    <script type="text/html" id="tpl_navbar">
+	<script type="text/html" id="tpl_navbar">
 <div class="page">
     <div class="page__bd" style="height: 100%;">
         <div class="weui-tab">
@@ -1002,8 +1003,8 @@
         });
     });
 </script>
-</script>
-    <script type="text/html" id="tpl_tabbar">
+	</script>
+	<script type="text/html" id="tpl_tabbar">
 <div class="page">
     <div class="page__bd" style="height: 100%;">
         <div class="weui-tab">
@@ -1044,8 +1045,8 @@
         });
     });
 </script>
-</script>
-    <script type="text/html" id="tpl_panel">
+	</script>
+	<script type="text/html" id="tpl_panel">
 <div class="page">
     <div class="page__hd">
         <h1 class="page__title">Panel</h1>
@@ -1143,7 +1144,7 @@
     </div>
 </div>
 </script>
-    <script type="text/html" id="tpl_actionsheet">
+	<script type="text/html" id="tpl_actionsheet">
 <div class="page">
     <div class="page__hd">
         <h1 class="page__title">ActionSheet</h1>
@@ -1219,8 +1220,8 @@
         });
     });
 </script>
-</script>
-    <script type="text/html" id="tpl_icons">
+	</script>
+	<script type="text/html" id="tpl_icons">
 <div class="page">
     <div class="page__hd">
         <h1 class="page__title">Icons</h1>
@@ -1278,7 +1279,7 @@
     </div>
 </div>
 </script>
-    <script type="text/html" id="tpl_searchbar">
+	<script type="text/html" id="tpl_searchbar">
 <div class="page">
     <div class="page__hd">
         <h1 class="page__title">SearchBar</h1>
@@ -1372,8 +1373,8 @@
         });
     });
 </script>
-</script>
-    <script type="text/html" id="tpl_picker">
+	</script>
+	<script type="text/html" id="tpl_picker">
 <div class="page">
     <div class="page__hd">
         <h1 class="page__title">Picker</h1>
@@ -1424,8 +1425,8 @@
         });
     });
 </script>
-</script>
-    <script type="text/html" id="tpl_footer">
+	</script>
+	<script type="text/html" id="tpl_footer">
 <div class="page">
     <div class="page__hd">
         <h1 class="page__title">Footer</h1>
@@ -1461,7 +1462,7 @@
     </div>
 </div>
 </script>
-    <script type="text/html" id="tpl_gallery">
+	<script type="text/html" id="tpl_gallery">
 <div class="page">
     <div class="page__hd">
         <h1 class="page__title">Gallery</h1>
@@ -1477,7 +1478,7 @@
     </div>
 </div>
 </script>
-    <script type="text/html" id="tpl_flex">
+	<script type="text/html" id="tpl_flex">
 <div class="page">
     <div class="page__hd">
         <h1 class="page__title">Flex</h1>
@@ -1513,7 +1514,7 @@
     </div>
 </div>
 </script>
-    <script type="text/html" id="tpl_loadmore">
+	<script type="text/html" id="tpl_loadmore">
 <div class="page">
     <div class="page__hd">
         <h1 class="page__title">Loadmore</h1>
@@ -1536,7 +1537,7 @@
     </div>
 </div>
 </script>
-    <script type="text/html" id="tpl_layers">
+	<script type="text/html" id="tpl_layers">
 <div class="page">
     <div class="page__hd">
         <div class="j_info page__info" data-for="normal">
@@ -1624,8 +1625,8 @@
         }, 500);
     });
 </script>
-</script>
-    <script type="text/html" id="tpl_uploader">
+	</script>
+	<script type="text/html" id="tpl_uploader">
 <div class="page">
     <div class="page__hd">
         <h1 class="page__title">Uploader</h1>
@@ -1707,8 +1708,8 @@
         });
     });
 </script>
-</script>
-    <script type="text/html" id="tpl_preview">
+	</script>
+	<script type="text/html" id="tpl_preview">
 <div class="page">
     <div class="page__hd">
         <h1 class="page__title">Preview</h1>
@@ -1771,7 +1772,7 @@
     </div>
 </div>
 </script>
-    <script type="text/html" id="tpl_grid">
+	<script type="text/html" id="tpl_grid">
 <div class="page">
     <div class="page__hd">
         <h1 class="page__title">Grid</h1>
@@ -1835,7 +1836,7 @@
     </div>
 </div>
 </script>
-    <script type="text/html" id="tpl_badge">
+	<script type="text/html" id="tpl_badge">
 <div class="page">
     <div class="page__hd">
         <h1 class="page__title">Badge</h1>
@@ -1889,11 +1890,11 @@
         </div>
     </div>
     <div class="page__ft">
-        <a href="javascript:home()"><img src="./images/icon_footer_link.png" /></a>
+        <a href="javascript:home()"><img th:src="@{/example/images/icon_footer_link.png}" /></a>
     </div>
 </div>
 </script>
-    <script type="text/html" id="tpl_slider">
+	<script type="text/html" id="tpl_slider">
 <div class="page">
     <div class="page__hd">
         <h1 class="page__title">Slider</h1>
@@ -1918,7 +1919,7 @@
         </div>
     </div>
     <div class="page__ft">
-        <a href="javascript:home()"><img src="./images/icon_footer_link.png" /></a>
+        <a href="javascript:home()"><img th:src="@{/example/images/icon_footer_link.png}" /></a>
     </div>
 </div>
 <script type="text/javascript">
@@ -1950,11 +1951,11 @@
         ;
     });
 </script>
-</script>
-	<script th:src="@{/example/zepto.min.js}"></script>
-<!--     <script src="./zepto.min.js"></script> -->
-    <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
-    <script src="https://res.wx.qq.com/open/libs/weuijs/1.0.0/weui.min.js"></script>
-    <script th:src="@{/example/example.js}"></script>
+	</script>
+	<script src="./zepto.min.js"></script>
+	<script type="text/javascript"
+		src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+	<script src="https://res.wx.qq.com/open/libs/weuijs/1.0.0/weui.min.js"></script>
+	<script src="./example.js"></script>
 </body>
 </html>

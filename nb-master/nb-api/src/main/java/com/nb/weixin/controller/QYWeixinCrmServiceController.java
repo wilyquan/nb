@@ -58,6 +58,19 @@ public class QYWeixinCrmServiceController {
 //		}
 		return "sucess";
 	}
+	
+	@GetMapping("login")
+	public ModelAndView login(String auth_code) {
+		LOG.info("auth_code = {} ", auth_code);
+//		model.put("time", new Date());
+//		model.put("message", this.message);
+//		QYSuiteAuthExecutor executor = new QYSuiteAuthExecutor(suiteId);
+//		String permanentCode = executor.getLoginInfo(auth_code);
+//		if(permanentCode !=null) {
+//			LOG.info("permanentCode = {} ", permanentCode);
+//		}
+		return new ModelAndView("example/index");
+	}
 }
 
 // 授权信息

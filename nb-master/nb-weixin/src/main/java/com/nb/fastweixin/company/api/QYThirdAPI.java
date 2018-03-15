@@ -391,6 +391,7 @@ public class QYThirdAPI extends QYThirdBaseAPI {
 
 	private Map getResult(BaseResponse r) {
 		LOG.error("原始jsonstring = {}", r.toJsonString());
+		LOG.error("原始getErrmsg = {}", r.getErrmsg());
 		String jsonResult = isSuccess(r.getErrcode()) ? r.getErrmsg() : r.toJsonString();
 		LOG.error("原始jsonResult = {}", r.toJsonString());
 		return JSONUtil.toGBean(jsonResult, Map.class);
