@@ -323,7 +323,7 @@ public class QYTokenPreference {
 
 	public synchronized String getPermanentCode(String suiteId) {
 		if (permanentCodes != null) {
-			permanentCodes.get(suiteId);
+			return permanentCodes.get(suiteId);
 		}
 
 		return null;
@@ -339,7 +339,7 @@ public class QYTokenPreference {
 
 	public synchronized String getCreateAuthCode(String suiteId) {
 		if (createAuthCodes != null) {
-			createAuthCodes.get(suiteId);
+			return createAuthCodes.get(suiteId);
 		}
 
 		return null;
