@@ -69,6 +69,7 @@ public class QYDefaultSuiteHandle {
 		String suiteTicket = QYTokenPreference.getInstance().getSuiteTicket(suiteId);
 		
 		if (StrUtil.isBlank(suiteTicket)) {
+			logger.info("suiteTicket is null, wait suite_ticket ...");
 			QYTokenPreference.getInstance().putCreateAuthCodes(suiteId, authCode);
 			return;
 		}

@@ -83,6 +83,12 @@ public class QYWeixinCrmOrderController extends QYWeixinOrderController {
 		
 	}
 
+	@Override
+	public void cancelAuth(Map m) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
 
 // 授权信息

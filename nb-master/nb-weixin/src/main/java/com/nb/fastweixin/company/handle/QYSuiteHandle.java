@@ -35,12 +35,20 @@ public interface QYSuiteHandle {
 	 */
 	public void authCorpInfo(Map m);
 	
+	
 	/**
 	 * 处理回调协议指令
 	 * 
 	 * @param m
 	 */
 	public void receiveOrder(Map m);
+	
+	/**
+	 * 取消授权，相当于卸载第三方应用
+	 * 
+	 * @param m
+	 */
+	public void cancelAuth(Map m);
 	
 	
 }
