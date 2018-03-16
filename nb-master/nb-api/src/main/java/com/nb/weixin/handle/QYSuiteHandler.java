@@ -49,7 +49,11 @@ public class QYSuiteHandler {
 			String authCode = preference.getCreateAuthCode(suiteId);
 			if (!StrUtil.isBlank(authCode)) {
 				handleCreateAuth(suiteId, authCode);
+			}else {
+				logger.info("authCode is null exception ...");
 			}
+		}else {
+			logger.info("isExistPermanentCode true");
 		}
 	}
 
@@ -60,7 +64,7 @@ public class QYSuiteHandler {
 	 * @param authCode
 	 */
 	public static void handleCreateAuth(String suiteId, String authCode) {
-
+		logger.info("handleCreateAuth function ...");
 		fixThreadExecutor.execute(new Runnable() {
 
 			@Override
