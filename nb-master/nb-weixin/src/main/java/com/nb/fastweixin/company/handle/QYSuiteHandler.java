@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.nb.weixin.handle;
+package com.nb.fastweixin.company.handle;
 
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
@@ -15,7 +15,6 @@ import com.nb.fastweixin.company.api.token.QYTokenPreference;
 import com.nb.fastweixin.util.JSONUtil;
 import com.nb.fastweixin.util.StrUtil;
 
-import io.netty.util.internal.StringUtil;
 
 /**
  * @author jewelvary

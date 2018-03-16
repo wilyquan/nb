@@ -209,13 +209,13 @@ public class QYThirdAPI extends QYThirdBaseAPI {
 	 * @param permanentCode 永久授权码，通过get_permanent_code获取
 	 * @return
 	 */
-	public Map getAuthInfo(String suiteAccessToken, String cropId, String permanentCode) {
+	public Map getAuthInfo(String suiteAccessToken, String authCorpId, String permanentCode) {
 
 		if (StrUtil.isBlank(suiteAccessToken)) {
 			LOG.error("suiteAccessToken null exception");
 			return null;
 		}
-		if (StrUtil.isBlank(cropId)) {
+		if (StrUtil.isBlank(authCorpId)) {
 			LOG.error("cropId null exception");
 			return null;
 		}
@@ -227,7 +227,7 @@ public class QYThirdAPI extends QYThirdBaseAPI {
 		String url = BASE_API_URL + "cgi-bin/service/get_auth_info?suite_access_token=" + suiteAccessToken;
 
 		Map param = new HashMap();
-		param.put("auth_corpid", cropId);
+		param.put("auth_corpid", authCorpId);
 		param.put("permanent_code", permanentCode);
 		
 		BaseResponse r = executePost(url, param);
@@ -248,13 +248,13 @@ public class QYThirdAPI extends QYThirdBaseAPI {
 	 * @param permanentCode
 	 * @return
 	 */
-	public Map getCorpAccessToken(String suiteAccessToken, String cropId, String permanentCode) {
+	public Map getCorpAccessToken(String suiteAccessToken, String authCorpId, String permanentCode) {
 
 		if (StrUtil.isBlank(suiteAccessToken)) {
 			LOG.error("suiteAccessToken null exception");
 			return null;
 		}
-		if (StrUtil.isBlank(cropId)) {
+		if (StrUtil.isBlank(authCorpId)) {
 			LOG.error("cropId null exception");
 			return null;
 		}
@@ -266,7 +266,7 @@ public class QYThirdAPI extends QYThirdBaseAPI {
 		String url = BASE_API_URL + "cgi-bin/service/get_corp_token?suite_access_token=" + suiteAccessToken;
 
 		Map param = new HashMap();
-		param.put("auth_corpid", cropId);
+		param.put("auth_corpid", authCorpId);
 		param.put("permanent_code", permanentCode);
 		
 		BaseResponse r = executePost(url, param);

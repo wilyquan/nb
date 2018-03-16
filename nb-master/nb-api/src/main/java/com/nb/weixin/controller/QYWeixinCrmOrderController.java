@@ -4,6 +4,7 @@
 package com.nb.weixin.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.nb.fastweixin.company.handle.QYEventHandle;
 import com.nb.fastweixin.company.handle.QYOrderHandle;
 import com.nb.fastweixin.servlet.QYWeixinControllerSupport;
+import com.nb.fastweixin.servlet.QYWeixinOrderController;
 import com.nb.weixin.handle.QYCrmOrderHandle;
 
 /**
@@ -26,7 +28,7 @@ import com.nb.weixin.handle.QYCrmOrderHandle;
  */
 @Controller
 @RequestMapping(value = "weixin/qy/crm/order")
-public class QYWeixinCrmOrderController extends QYWeixinControllerSupport {
+public class QYWeixinCrmOrderController extends QYWeixinOrderController {
 
 	@Override
 	protected String getToken() {
@@ -44,10 +46,10 @@ public class QYWeixinCrmOrderController extends QYWeixinControllerSupport {
 		return "xrIh4pDOWFfoWsJeqqpyRplbqbpMix3iAaKp4vWwgl7";
 	}
 
-	@Override
-	protected QYOrderHandle initOrderHandle() {
-		return new QYCrmOrderHandle();
-	}
+//	@Override
+//	protected QYOrderHandle initOrderHandle() {
+//		return new QYCrmOrderHandle();
+//	}
 
 	@Override
 	protected String getSuitId() {
@@ -61,6 +63,24 @@ public class QYWeixinCrmOrderController extends QYWeixinControllerSupport {
 
 	protected List<QYEventHandle> initEventHandles() {
 		return null;
+	}
+
+	@Override
+	public void permanentCode(Map m) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void authCorpInfo(Map m) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void receiveOrder(Map m) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

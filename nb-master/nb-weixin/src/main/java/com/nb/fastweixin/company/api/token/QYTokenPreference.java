@@ -58,6 +58,11 @@ public class QYTokenPreference {
 	private Map<String, String> permanentCodes;
 	
 	/**
+	 * 企业access_token
+	 */
+	private Map<String, QYCorpAccessToken> corpAccessTokens;
+	
+	/**
 	 * 同意授权后的临时authcode
 	 */
 	private Map<String, String> createAuthCodes;
@@ -339,6 +344,28 @@ public class QYTokenPreference {
 
 		return null;
 	}
+	
+	public synchronized void putCorpAccessTokens(QYCorpAccessToken token) {
+		if (corpAccessTokens == null) {
+			corpAccessTokens = new HashMap<String, QYCorpAccessToken>();
+		}
+
+		corpAccessTokens.put(token.getKey(), token);
+	} 
+	
+	public synchronized String getCorpAccessToken(String suiteId, String corpId) {
+		if (corpAccessTokens != null) {
+			QYCorpAccessToken token = corpAccessTokens.get(QYCorpAccessToken.getAccessKey(suiteId, corpId));
+			if (token != null) {
+				token.setSuiteAccesToken(this.getSuiteAccessToken(suiteId));
+				return token.getAccessToken();
+			}
+		}
+
+		return null;
+	} 
+	
+	
 	
 	public boolean isExistPermanentCode(String suiteId) {
 		String code = getPermanentCode(suiteId);

@@ -16,6 +16,13 @@ import com.nb.fastweixin.company.message.resp.QYBaseRespMsg;
  *  ====================================================================
  */
 public interface QYOrderHandle{
+	
+	/**
+	 * 获得套件业务处理对象
+	 * 
+	 * @return
+	 */
+	public QYSuiteHandle getSuiteHandle();
 
     /**
      * 处理指令事件

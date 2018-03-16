@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 
 import com.nb.fastweixin.company.api.token.QYTokenPreference;
 import com.nb.fastweixin.company.handle.QYOrderHandle;
+import com.nb.fastweixin.company.handle.QYSuiteHandle;
 import com.nb.fastweixin.company.message.req.QYOrderType;
 import com.nb.fastweixin.util.JSONUtil;
 import com.nb.utils.SpringContextHolder;
@@ -112,6 +113,12 @@ public class QYCrmOrderHandle implements QYOrderHandle {
 				service.save(newSuiteOrder);
 			}
 		}
+	}
+
+	@Override
+	public QYSuiteHandle getSuiteHandle() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
