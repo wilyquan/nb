@@ -42,13 +42,16 @@ public class QYCrmOrderHandle implements QYOrderHandle {
 //			updateSuiteTicket(reqMap);
 			String suiteId = (String) reqMap.get("SuiteId");
 			String suiteTicket = (String) reqMap.get("SuiteTicket");
-			QYTokenPreference.getInstance().putSuiteTicket(suiteId, suiteTicket);
-			
+//			QYTokenPreference.getInstance().putSuiteTicket(suiteId, suiteTicket);
+			QYSuiteHandler.updateSuiteTicket(suiteId, suiteTicket);
 			return true;
 		} else if (QYOrderType.CREATE_AUTH.equalsIgnoreCase(infoType)) {
-			suiteAuth(reqMap);
-			QYSuiteAuthExecutor executor = new QYSuiteAuthExecutor((String) reqMap.get("SuiteId"));
-			executor.getPermanentCode((String) reqMap.get("AuthCode"));
+			//获得授权的auth_code,最长为512字节。用于获取企业的永久授权码
+			
+			QYSuiteHandler.handleCreateAuth((String) reqMap.get("SuiteId"), (String) reqMap.get("AuthCode"));
+//			suiteAuth(reqMap);
+//			QYSuiteAuthExecutor executor = new QYSuiteAuthExecutor((String) reqMap.get("SuiteId"));
+//			executor.getPermanentCode((String) reqMap.get("AuthCode"));
 		} else if (QYOrderType.CANCEL_AUTH.equalsIgnoreCase(infoType)) {
 			suiteAuthCancel(reqMap);
 		}
