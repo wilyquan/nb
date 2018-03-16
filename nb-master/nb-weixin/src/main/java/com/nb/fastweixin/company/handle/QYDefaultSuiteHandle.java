@@ -191,6 +191,47 @@ public class QYDefaultSuiteHandle {
 		
 		return null;
 	}
+	
+	public String getLoginInfo(String authCode) {
+		if (StrUtil.isBlank(authCode)) {
+			logger.error("authCode is null exception!");
+			return null;
+		}
+		String providerAccessToken =
+				 QYTokenPreference.getInstance().getProviderAccessToken();
+		if (StrUtil.isBlank(providerAccessToken)) {
+			logger.error("providerAccessToken is null exception!");
+			return null;
+		}
+
+		QYThirdAPI thirdAPI = new QYThirdAPI();
+		Map r = thirdAPI.getLoginInfo(providerAccessToken, authCode);
+//		int errcode = (int) r.get("errcode");
+		if (isOk(r)) {
+			logger.info("----------------getLoginInfo成功---------------");
+			logger.info(r.toString());
+			logger.info(JSONUtil.toGJson(r));
+
+//			String permanentCode = (String) r.get("permanent_code");
+//			String accessToken = (String) r.get("access_token");
+//			String expires_in = (String) r.get("expires_in");
+//
+//			Map authCorpInfo = (Map) r.get("auth_corp_info");
+//			String corpid = (String) authCorpInfo.get("corpid");
+//			String corp_name = (String) authCorpInfo.get("corp_name");
+
+			return null;
+			// Suite suite = suiteService.findBySuiteId(suiteId);
+		}else {
+			logger.info("----------------getLoginInfo失败---------------");
+			logger.info(JSONUtil.toJson(r));
+		}
+
+		return null;
+		
+		// Map r = QYThirdAPI thirdAPI = new QYThirdAPI();
+		// thirdAPI.getPermanentCode(suiteAccessToken, authCode)
+	}
 
 	public static boolean isOk(Map r) {
 		Object errCode = r.get("errcode");
