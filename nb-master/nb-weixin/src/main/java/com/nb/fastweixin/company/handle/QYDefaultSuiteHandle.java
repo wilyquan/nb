@@ -80,7 +80,7 @@ public class QYDefaultSuiteHandle {
 
 				String permanentCode = (String) r.get("permanent_code");
 				String accessToken = (String) r.get("access_token");
-				String expires_in = (String) r.get("expires_in");
+//				String expires_in = (String) r.get("expires_in");
 
 				Map authCorpInfo = (Map) r.get("auth_corp_info");
 				String corpid = (String) authCorpInfo.get("corpid");
