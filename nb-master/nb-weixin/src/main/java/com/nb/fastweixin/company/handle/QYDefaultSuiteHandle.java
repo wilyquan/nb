@@ -66,6 +66,12 @@ public class QYDefaultSuiteHandle {
 	 * @param authCode
 	 */
 	public static void handleCreateAuth(String suiteId, String authCode, QYSuiteHandle suiteHandle) {
+		String suiteTicket = QYTokenPreference.getInstance().getSuiteTicket(suiteId);
+		
+		if (StrUtil.isBlank(suiteTicket)) {
+			QYTokenPreference.getInstance().putCreateAuthCodes(suiteId, authCode);
+			return;
+		}
 		logger.info("handleCreateAuth function ...");
 		String suiteAccessToken = QYTokenPreference.getInstance().getSuiteAccessToken(suiteId);
 		// 首次获得suiteaccesstoken因为suite_ticket没有发送到平台，可能会存在空的内容

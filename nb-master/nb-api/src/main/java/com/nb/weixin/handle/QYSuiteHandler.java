@@ -65,6 +65,7 @@ public class QYSuiteHandler {
 	 */
 	public static void handleCreateAuth(String suiteId, String authCode) {
 		logger.info("handleCreateAuth function ...");
+		
 		fixThreadExecutor.execute(new Runnable() {
 
 			@Override
