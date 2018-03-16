@@ -345,6 +345,12 @@ public class QYTokenPreference {
 		return null;
 	}
 	
+	public synchronized void removeCreateAuthCode(String suiteId) {
+		if (createAuthCodes != null) {
+			createAuthCodes.remove(suiteId);
+		}
+	}
+	
 	public synchronized void putCorpAccessTokens(QYCorpAccessToken token) {
 		if (corpAccessTokens == null) {
 			corpAccessTokens = new HashMap<String, QYCorpAccessToken>();
