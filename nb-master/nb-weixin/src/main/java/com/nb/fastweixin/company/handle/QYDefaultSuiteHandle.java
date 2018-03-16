@@ -93,7 +93,7 @@ public class QYDefaultSuiteHandle {
 				String corpid = (String) authCorpInfo.get("corpid");
 				String corp_name = (String) authCorpInfo.get("corp_name");
 
-				
+				QYTokenPreference.getInstance().putPermanentCode(suiteId, permanentCode);
 				if (suiteHandle != null) {
 					//处理企业永久授权码
 					suiteHandle.permanentCode(r);
