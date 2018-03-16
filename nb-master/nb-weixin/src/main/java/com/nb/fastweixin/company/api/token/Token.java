@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.nb.fastweixin.company.api.config;
+package com.nb.fastweixin.company.api.token;
 
 import com.nb.fastweixin.util.StrUtil;
 
@@ -85,5 +85,7 @@ public class Token {
 	public void setTokenTime(long tokenTime) {
 		this.tokenTime = tokenTime;
 	}
+	
+	
 
 }

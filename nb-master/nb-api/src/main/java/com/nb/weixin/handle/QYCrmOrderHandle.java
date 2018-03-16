@@ -8,6 +8,7 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.nb.fastweixin.company.api.token.QYTokenPreference;
 import com.nb.fastweixin.company.handle.QYOrderHandle;
 import com.nb.fastweixin.company.message.req.QYOrderType;
 import com.nb.fastweixin.util.JSONUtil;
@@ -38,8 +39,11 @@ public class QYCrmOrderHandle implements QYOrderHandle {
 		LOG.info(JSONUtil.toJson(reqMap));
 		String infoType = (String) reqMap.get("InfoType");
 		if (QYOrderType.SUITE_TICKET.equalsIgnoreCase(infoType)) {
-			updateSuiteTicket(reqMap);
-
+//			updateSuiteTicket(reqMap);
+			String suiteId = (String) reqMap.get("SuiteId");
+			String suiteTicket = (String) reqMap.get("SuiteTicket");
+			QYTokenPreference.getInstance().putSuiteTicket(suiteId, suiteTicket);
+			
 			return true;
 		} else if (QYOrderType.CREATE_AUTH.equalsIgnoreCase(infoType)) {
 			suiteAuth(reqMap);

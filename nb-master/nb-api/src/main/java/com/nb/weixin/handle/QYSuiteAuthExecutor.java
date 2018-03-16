@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
 
 import com.nb.fastweixin.api.enums.QYAuthType;
 import com.nb.fastweixin.company.api.QYThirdAPI;
-import com.nb.fastweixin.company.api.config.QYTokenPreference;
+import com.nb.fastweixin.company.api.token.QYTokenPreference;
 import com.nb.fastweixin.util.JSONUtil;
 import com.nb.utils.SpringContextHolder;
 import com.nb.utils.StringUtils;
