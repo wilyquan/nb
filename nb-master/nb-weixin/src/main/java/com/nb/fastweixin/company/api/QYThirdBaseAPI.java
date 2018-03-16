@@ -12,6 +12,9 @@ import java.io.File;
 import java.util.List;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * 第三方API基类，提供一些通用方法 包含自动刷新token、通用get post请求等
  *
@@ -21,7 +24,7 @@ import java.util.Map;
 public abstract class QYThirdBaseAPI {
 
 	protected static final String BASE_API_URL = "https://qyapi.weixin.qq.com/";
-
+	private static final Logger LOG = LoggerFactory.getLogger(QYThirdBaseAPI.class);
 	// protected final QYAPIConfig config;
 
 	/**
@@ -76,6 +79,7 @@ public abstract class QYThirdBaseAPI {
 		// 需要传token
 		String postUrl = url;// url.replace("#", config.getAccessToken());
 		response = NetWorkCenter.post(postUrl, json, files);
+		LOG.info(response.toJsonString());
 		return response;
 	}
 
@@ -92,7 +96,7 @@ public abstract class QYThirdBaseAPI {
 		// 需要传token
 		String getUrl = url;// url.replace("#", config.getAccessToken());
 		response = NetWorkCenter.get(getUrl);
-
+		LOG.info(response.toJsonString());
 		return response;
 	}
 

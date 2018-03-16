@@ -56,7 +56,7 @@ public class QYSuiteAccessToken extends Token {
 			Map r = api.getSuiteToken(suiteId, suiteSecret, suiteTicket);
 			String suite_access_token = (String) r.get("suite_access_token");
 			if (suite_access_token != null) {
-				this.setAccessToken(suite_access_token);
+				super.setAccessToken(suite_access_token);
 				long expires_in = ((Number) r.get("expires_in")).longValue();
 
 				this.setExpiresIn(expires_in);

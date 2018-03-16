@@ -111,7 +111,6 @@ public class QYThirdAPI extends QYThirdBaseAPI {
 		param.put("suite_secret", suiteSecret);
 		param.put("suite_ticket", suiteTicket);
 		BaseResponse r = executePost(url, param);
-
 		String jsonResult = isSuccess(r.getErrcode()) ? r.getErrmsg() : r.toJsonString();
 		return JSONUtil.toBean(jsonResult, Map.class);
 
