@@ -22,7 +22,50 @@ import com.nb.weixin.company.entity.SuiteOrder;
 @Service(value = "suiteAuthService")
 @Transactional
 public class SuiteAuthService extends CrudService<SuiteAuthDao, SuiteAuth, String> {
-
+	
+	public void update(String suiteId, String authCorpId, String permanentCode, int status) {
+		SuiteAuth oldSuiteAuth = dao.findBySuiteIdAndAuthcorpId(suiteId, authCorpId);
+		if (oldSuiteAuth != null) {
+			oldSuiteAuth.setPermanentCode(permanentCode);
+			oldSuiteAuth.setStatus(status);
+		}else {
+			oldSuiteAuth = new SuiteAuth(suiteId, authCorpId, permanentCode, status);
+		}
+		
+		this.save(oldSuiteAuth);
+	}
+	
+	/**
+	 * 更新永久授权码
+	 * 
+	 * @param suiteId
+	 * @param authCorpId
+	 * @param permanentCode
+	 */
+	public void updatePermanentCode(String suiteId, String authCorpId, String permanentCode) {
+		update(suiteId, authCorpId, null, SuiteAuth.STATUS_AUTH);
+	}
+	
+	/**
+	 * 授权成功
+	 * 
+	 * @param suiteId
+	 * @param authCorpId
+	 */
+	public void createAuth(String suiteId, String authCorpId) {
+		update(suiteId, authCorpId, null, SuiteAuth.STATUS_AUTH);
+	}
+	
+	/**
+	 * 取消授权
+	 * 
+	 * @param suiteId
+	 * @param authCorpId
+	 */
+	public void cancelAuth(String suiteId, String authCorpId) {
+		update(suiteId, authCorpId, null, SuiteAuth.STATUS_AUTH_CANCEL);
+	}
+	
 	/**
 	 * 授权成功
 	 * @param suiteAuth

@@ -13,6 +13,6 @@ import com.nb.weixin.company.entity.SuiteAuth;
 
 public interface SuiteAuthDao extends BaseDao<SuiteAuth, String> {
 	
-	SuiteAuth findBySuiteId(String suiteId);
+	SuiteAuth findBySuiteIdAndAuthcorpId(String suiteId, String authcorpId);
 	
 }

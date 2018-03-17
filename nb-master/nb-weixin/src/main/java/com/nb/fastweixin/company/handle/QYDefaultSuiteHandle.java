@@ -97,7 +97,7 @@ public class QYDefaultSuiteHandle {
 				QYTokenPreference.getInstance().removeCreateAuthCode(suiteId);
 				if (suiteHandle != null) {
 					//处理企业永久授权码
-					suiteHandle.permanentCode(r);
+					suiteHandle.permanentCode(suiteId, corpid, permanentCode, r);
 					
 					Map corpInfo = handleCorpAuthInfo(suiteId, corpid, permanentCode);
 					if (corpInfo != null) {

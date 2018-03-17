@@ -67,14 +67,14 @@ public class QYCrmOrderHandle implements QYOrderHandle {
 	 * @param reqMap
 	 */
 	public void suiteAuthCancel(Map reqMap) {
-		String suiteId = (String) reqMap.get("SuiteId");
-		String cropId = (String) reqMap.get("AuthCorpId");
-
-		SuiteAuth auth = new SuiteAuth(suiteId, null, cropId);
-
-		SuiteAuthService service = SpringContextHolder.getBean(SuiteAuthService.class);
-		
-		service.doSuiteAuthCancel(auth);
+//		String suiteId = (String) reqMap.get("SuiteId");
+//		String cropId = (String) reqMap.get("AuthCorpId");
+//
+//		SuiteAuth auth = new SuiteAuth(suiteId, null, cropId);
+//
+//		SuiteAuthService service = SpringContextHolder.getBean(SuiteAuthService.class);
+//		
+//		service.doSuiteAuthCancel(auth);
 	}
 
 	/**
@@ -82,25 +82,25 @@ public class QYCrmOrderHandle implements QYOrderHandle {
 	 * @param reqMap
 	 */
 	public void suiteAuth(Map reqMap) {
-		String suiteId = (String) reqMap.get("SuiteId");
-		String authCode = (String) reqMap.get("AuthCode");
-
-		SuiteAuth auth = new SuiteAuth(suiteId, authCode, null);
-
-		SuiteAuthService service = SpringContextHolder.getBean(SuiteAuthService.class);
-		service.doSuiteAuth(auth);
+//		String suiteId = (String) reqMap.get("SuiteId");
+//		String authCode = (String) reqMap.get("AuthCode");
+//
+//		SuiteAuth auth = new SuiteAuth(suiteId, authCode, null);
+//
+//		SuiteAuthService service = SpringContextHolder.getBean(SuiteAuthService.class);
+//		service.doSuiteAuth(auth);
 	}
 
 	public void updateSuiteTicket(Map map) {
-		SuiteService service = SpringContextHolder.getBean(SuiteService.class);
-		if (service != null) {
-			Suite suite = new Suite();
-			Suite newSuite = suite.convert(map);
-			if (newSuite != null) {
-				service.updateSuiteTicket(newSuite);
-			}
-
-		}
+//		SuiteService service = SpringContextHolder.getBean(SuiteService.class);
+//		if (service != null) {
+//			Suite suite = new Suite();
+//			Suite newSuite = suite.convert(map);
+//			if (newSuite != null) {
+//				service.updateSuiteTicket(newSuite);
+//			}
+//
+//		}
 	}
 
 	public void addSuiteOrder(Map map) {

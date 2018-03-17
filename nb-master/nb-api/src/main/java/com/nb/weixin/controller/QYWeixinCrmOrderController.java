@@ -13,6 +13,9 @@ import com.nb.fastweixin.company.handle.QYEventHandle;
 import com.nb.fastweixin.company.handle.QYOrderHandle;
 import com.nb.fastweixin.servlet.QYWeixinControllerSupport;
 import com.nb.fastweixin.servlet.QYWeixinOrderController;
+import com.nb.utils.SpringContextHolder;
+import com.nb.weixin.company.service.SuiteAuthService;
+import com.nb.weixin.company.service.SuiteService;
 import com.nb.weixin.handle.QYCrmOrderHandle;
 
 /**
@@ -66,11 +69,12 @@ public class QYWeixinCrmOrderController extends QYWeixinOrderController {
 	}
 
 	@Override
-	public void permanentCode(Map m) {
-		// TODO Auto-generated method stub
-		
+	public void permanentCode(String suiteId, String authCorpId, String permanentCode, Map m) {
+		SuiteAuthService service= SpringContextHolder.getBean(SuiteAuthService.class);
+	
+		service.updatePermanentCode(suiteId, authCorpId, permanentCode);
 	}
-
+	
 	@Override
 	public void authCorpInfo(Map m) {
 		// TODO Auto-generated method stub
@@ -88,6 +92,8 @@ public class QYWeixinCrmOrderController extends QYWeixinOrderController {
 		// TODO Auto-generated method stub
 		
 	}
+
+	
 
 }
 

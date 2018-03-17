@@ -23,7 +23,7 @@ public interface QYSuiteHandle {
 	 *  
 	 * @param m
 	 */
-	public void permanentCode(Map m);
+	public void permanentCode(String suiteId, String authCorpId, String permanentCode, Map m);
 	
 	/**
 	 * 通过获取企业授权信息接口获得
