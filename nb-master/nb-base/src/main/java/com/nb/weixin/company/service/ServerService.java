@@ -9,7 +9,9 @@ import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.stereotype.Service;
 
 import com.nb.entity.CrudService;
+import com.nb.weixin.company.dao.ServerDao;
 import com.nb.weixin.company.dao.SuiteDao;
+import com.nb.weixin.company.entity.Server;
 import com.nb.weixin.company.entity.Suite;
 
 /**
@@ -17,10 +19,10 @@ import com.nb.weixin.company.entity.Suite;
  *
  */
 //@Component("userService")
-@Service(value = "suiteService")
+@Service(value = "serverService")
 @Transactional
-@CacheConfig(cacheNames = "qysuite-cache")
-public class SuiteService extends CrudService<SuiteDao, Suite, String>{
+//@CacheConfig(cacheNames = "qysuite-cache")
+public class ServerService extends CrudService<ServerDao, Server, String>{
 	
 //	public Suite findBySuiteId(String suiteId) {
 //		return dao.findBySuiteId(suiteId);

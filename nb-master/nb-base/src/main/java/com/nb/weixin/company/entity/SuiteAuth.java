@@ -29,32 +29,24 @@ public class SuiteAuth extends DbEntity<SuiteAuth> {
 	public static final int STATUS_AUTH_CANCEL = 1;
 
 	private String suiteId;
-	private String corpId;
-	private String authCode;
+	private String authcorpId;
+	private String permanentCode;
 	private int status;
 
 	public SuiteAuth() {
 
 	}
 	
-	public SuiteAuth(String suiteId, String authCode, String corpId) {
+	public SuiteAuth(String suiteId,  String authcorpId, String permanentCode, int status) {
 		this.suiteId = suiteId;
-		this.authCode = authCode;
-		this.corpId = corpId;
+		this.authcorpId = authcorpId;
+		this.permanentCode = permanentCode;
 		
-		if (!StringUtils.isNullOrEmpty(authCode)) {
-			this.status = STATUS_AUTH;
-		}else {
-			this.status = STATUS_AUTH_CANCEL;
-		}
+		this.status = status;
 		
 	}
 	
-//	public SuiteAuth(String suiteId, String corpId) {
-//		this.suiteId = suiteId;
-//		this.corpId = corpId;
-//		this.status = STATUS_AUTH_CANCEL;
-//	}
+
 
 	public String getSuiteId() {
 		return suiteId;
@@ -64,12 +56,20 @@ public class SuiteAuth extends DbEntity<SuiteAuth> {
 		this.suiteId = suiteId;
 	}
 
-	public String getAuthCode() {
-		return authCode;
+	public String getAuthcorpId() {
+		return authcorpId;
 	}
 
-	public void setAuthCode(String authCode) {
-		this.authCode = authCode;
+	public void setAuthcorpId(String authcorpId) {
+		this.authcorpId = authcorpId;
+	}
+
+	public String getPermanentCode() {
+		return permanentCode;
+	}
+
+	public void setPermanentCode(String permanentCode) {
+		this.permanentCode = permanentCode;
 	}
 
 	public int getStatus() {
@@ -78,14 +78,6 @@ public class SuiteAuth extends DbEntity<SuiteAuth> {
 
 	public void setStatus(int status) {
 		this.status = status;
-	}
-
-	public String getCorpId() {
-		return corpId;
-	}
-
-	public void setCorpId(String corpId) {
-		this.corpId = corpId;
 	}
 
 	public SuiteAuth convert(Map obj) {
