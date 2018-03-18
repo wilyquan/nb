@@ -6,6 +6,7 @@ package com.nb.weixin.controller;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -33,6 +34,9 @@ import com.nb.weixin.handle.QYCrmOrderHandle;
 @RequestMapping(value = "weixin/qy/crm/order")
 public class QYWeixinCrmOrderController extends QYWeixinOrderController {
 
+	@Autowired
+	private SuiteAuthService suiteAuthService;
+	
 	@Override
 	protected String getToken() {
 		return "qy_yingyong_jewelvary";
@@ -70,9 +74,7 @@ public class QYWeixinCrmOrderController extends QYWeixinOrderController {
 
 	@Override
 	public void permanentCode(String suiteId, String authCorpId, String permanentCode, Map m) {
-		SuiteAuthService service= SpringContextHolder.getBean(SuiteAuthService.class);
-	
-		service.updatePermanentCode(suiteId, authCorpId, permanentCode);
+		suiteAuthService.updatePermanentCode(suiteId, authCorpId, permanentCode);
 	}
 	
 	@Override
@@ -88,9 +90,8 @@ public class QYWeixinCrmOrderController extends QYWeixinOrderController {
 	}
 
 	@Override
-	public void cancelAuth(Map m) {
-		// TODO Auto-generated method stub
-		
+	public void cancelAuth(String suiteId, String authCorpId) {
+		suiteAuthService.cancelAuth(suiteId, authCorpId);
 	}
 
 	

@@ -36,17 +36,15 @@ public class SuiteAuth extends DbEntity<SuiteAuth> {
 	public SuiteAuth() {
 
 	}
-	
-	public SuiteAuth(String suiteId,  String authcorpId, String permanentCode, int status) {
+
+	public SuiteAuth(String suiteId, String authcorpId, String permanentCode, int status) {
 		this.suiteId = suiteId;
 		this.authcorpId = authcorpId;
 		this.permanentCode = permanentCode;
-		
-		this.status = status;
-		
-	}
-	
 
+		this.status = status;
+
+	}
 
 	public String getSuiteId() {
 		return suiteId;

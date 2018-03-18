@@ -85,11 +85,20 @@ public class QYDefaultOrderHandle implements QYOrderHandle {
 				QYDefaultSuiteHandle.updateSuiteTicket(suiteId, suiteTicket, getSuiteHandle());
 			} else if (QYOrderType.CREATE_AUTH.equalsIgnoreCase(infoType)) {
 				//获得授权的auth_code,最长为512字节。用于获取企业的永久授权码
+				String suiteId = (String) reqMap.get("SuiteId");
+				String authCode = (String) reqMap.get("AuthCode");
+//				if (suiteHandle!= null) {
+//					suiteHandle.createAuth(suiteId, authCode);
+//				}
 				
-				QYDefaultSuiteHandle.handleCreateAuth((String) reqMap.get("SuiteId"), (String) reqMap.get("AuthCode"), getSuiteHandle());
+				QYDefaultSuiteHandle.handleCreateAuth(suiteId, authCode, getSuiteHandle());
 
 			} else if (QYOrderType.CANCEL_AUTH.equalsIgnoreCase(infoType)) {
-				
+				String suiteId = (String) reqMap.get("SuiteId");
+				String authCorpId = (String) reqMap.get("AuthCorpId");
+				if (suiteHandle!= null) {
+					suiteHandle.cancelAuth(suiteId, authCorpId);
+				}
 			}
 
 			if (suiteHandle != null) {

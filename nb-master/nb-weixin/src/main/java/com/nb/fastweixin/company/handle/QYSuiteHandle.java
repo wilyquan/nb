@@ -48,7 +48,15 @@ public interface QYSuiteHandle {
 	 * 
 	 * @param m
 	 */
-	public void cancelAuth(Map m);
+	public void cancelAuth(String suiteId, String authCorpId);
+	
+	/**
+	 * 授权成功
+	 * 
+	 * @param suiteId
+	 * @param auth_code
+	 */
+//	public void createAuth(String suiteId, String auth_code);
 	
 	
 }

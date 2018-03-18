@@ -15,4 +15,6 @@ public interface SuiteAuthDao extends BaseDao<SuiteAuth, String> {
 	
 	SuiteAuth findBySuiteIdAndAuthcorpId(String suiteId, String authcorpId);
 	
+	SuiteAuth findBySuiteIdAndAuthCode(String suiteId, String authCode);
+	
 }

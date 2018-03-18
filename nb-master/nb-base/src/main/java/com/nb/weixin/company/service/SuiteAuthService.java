@@ -34,27 +34,21 @@ public class SuiteAuthService extends CrudService<SuiteAuthDao, SuiteAuth, Strin
 		
 		this.save(oldSuiteAuth);
 	}
+
 	
 	/**
 	 * 更新永久授权码
+	 * 
+	 * 授权成功
 	 * 
 	 * @param suiteId
 	 * @param authCorpId
 	 * @param permanentCode
 	 */
 	public void updatePermanentCode(String suiteId, String authCorpId, String permanentCode) {
-		update(suiteId, authCorpId, null, SuiteAuth.STATUS_AUTH);
+		update(suiteId, authCorpId, permanentCode, SuiteAuth.STATUS_AUTH);
 	}
-	
-	/**
-	 * 授权成功
-	 * 
-	 * @param suiteId
-	 * @param authCorpId
-	 */
-	public void createAuth(String suiteId, String authCorpId) {
-		update(suiteId, authCorpId, null, SuiteAuth.STATUS_AUTH);
-	}
+
 	
 	/**
 	 * 取消授权
