@@ -157,7 +157,6 @@ CREATE TABLE qy_suite_auth
 	id varchar(64) NOT NULL COMMENT '编号',
 	suite_id varchar(100) NOT NULL COMMENT 'suite_id',
 	authcorp_id varchar(100) NOT NULL COMMENT '授权方corpid',
-	auth_code varchar(512) COMMENT '授权码',
 	permanent_code varchar(512) COMMENT '永久授权码，通过get_permanent_code获取',
 	status char(1) NOT NULL COMMENT '授权状态(0、授权 1、取消授权)',
 	create_by varchar(64) COMMENT '创建者',
