@@ -23,7 +23,7 @@ import com.nb.weixin.company.entity.Suite;
  *
  */
 //@Component("userService")
-@Service(value = "agentService")
+@Service(value = "corpService")
 @Transactional
 //@CacheConfig(cacheNames = "qysuite-cache")
 public class CorpService extends CrudService<CorpDao, Corp, String>{
